@@ -5,6 +5,14 @@ var app = new Vue({
         editingName: false,
         loginVisible:false,
         signUpVisible:false,
+        signUp:{
+            email:'',
+            password:'',
+        },
+        login:{
+            email:'',
+            password:'',
+        },
         resume: {
             name: '姓名',
             gender: '女',
@@ -20,18 +28,53 @@ var app = new Vue({
         },
 
         showLogin(){this.loginVisible=true},
-        saveResume(){},
+        saveResume(){
+            let {id}=AV.User.current()
+            let user = AV.Object.createWithoutData('User', id);
+            user.set('resume', this.resume);
+            user.save();
+        },
+        onLogin(e){
+            AV.User.logIn(this.login.email, this.login.password)
+                .then(function (user) {
+                console.log(user);
+            }, function (error) {
+                    if(211===error.code){
+                       alert('邮箱不存在')
+                    }else if(210===error.code){
+                        alert('邮箱和密码不匹配')
+                    }
+                });
+        },
+        onLogout(){
+            AV.User.logOut()
+            alert('登出成功')
+            var currentUser = AV.User.current();
+        },
+        onSignUp(e){
+            console.log(this.signUp)
+            // 新建 AVUser 对象实例
+            const user = new AV.User();
+            // 设置用户名
+            user.setUsername(this.signUp.email)
+            // 设置密码
+            user.setPassword(this.signUp.password)
+            // 设置邮箱
+            user.setEmail(this.signUp.email)
+            user.signUp().then(function (user) {
+                console.log(user)
+            }, function (error) {
+            })
+
+        },
 
         onClickSave(){
             let currentUser=AV.User.current()
             if(!currentUser){
-                console.log(this);
                 this.loginVisible=true
             }else{
                 this.saveResume()
             }
-
-
         },
     }
 })
