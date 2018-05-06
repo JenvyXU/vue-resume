@@ -1,0 +1,14 @@
+.editableSpan {
+    position: relative;
+}
+
+.editableSpan button {
+    display: none;
+    position: absolute;
+    left: 100%;
+}
+
+.editableSpan:hover button {
+    display: inline-block;
+    z-index: 1;
+}
