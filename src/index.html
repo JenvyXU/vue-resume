@@ -6,16 +6,15 @@
     <link href="css/index.css" rel="stylesheet"/>
     <link href="css/resume.css" rel="stylesheet"/>
     <link href="css/editable-span.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/signUp.css">
 </head>
 <body>
-<div id="components-demo">
-    <button-counter></button-counter>
-</div>
 <div id="app" class="page">
     <aside>
         <div class="upper">
             <ul class="actions">
-                <li><button>保存</button></li>
+                <li><button @click="onClickSave">保存</button></li>
                 <li><button>分享</button></li>
                 <li><button>打印</button></li>
                 <li><button>换肤</button></li>
@@ -129,6 +128,42 @@
             </section>
         </div>
     </main>
+    <div v-show="loginVisible" class="login">
+        <form class="form">
+            <h2>登陆</h2>
+            <button @click="loginVisible=false">关闭</button>
+            <div class="row">
+                <label>邮箱</label>
+                <input type="text">
+            </div>
+            <div class="row">
+            <label>密码</label>
+                <input type="text">
+            </div>
+            <div class="action">
+                <button>提交</button>
+                <a @click="signUpVisible=true;loginVisible=false" href="#">注册</a>
+            </div>
+
+        </form>
+
+    </div>
+    <div v-show="signUpVisible" class="signUp">
+        <h2>注册</h2>
+        <button @click="signUpVisible=false">关闭</button>
+        <div class="row">
+            <label>邮箱</label>
+            <input type="text">
+        </div>
+        <div class="row">
+            <label>密码</label>
+            <input type="text">
+        </div>
+        <div class="action">
+            <button>提交</button>
+            <a @click="signUpVisible=false; loginVisible=true" href="#">登录</a>
+        </div>
+    </div>
 </div>
 <script src="../vendors/av-min.js"></script>
 <script src="../vendors/vue.min.js"></script>
