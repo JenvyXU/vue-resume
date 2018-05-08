@@ -8,6 +8,7 @@
     <link href="css/editable-span.css" rel="stylesheet"/>
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/signUp.css">
+    <link rel="stylesheet" href="./css/share.css">
 </head>
 <body>
 <div id="app" class="page">
@@ -15,7 +16,7 @@
         <div class="upper">
             <ul class="actions">
                 <li><button @click="onClickSave">保存</button></li>
-                <li><button>分享</button></li>
+                <li><button @click="shareVisible=true">分享</button></li>
                 <li><button>打印</button></li>
                 <li><button>换肤</button></li>
             </ul>
@@ -61,60 +62,25 @@
             <section class="projects">
                 <h2>项目经历</h2>
                 <ol>
-                    <li>
+                    <li v-for="project,index in resume.projects">
                     <header>
                         <div class="start">
-                            <h3 class="name">我的简历</h3>
-                            <span class="link">http://xxx/xxx</span>
+                            <h3 class="name">
+                                <editable-span :value="project.name" @edit="onEdit(`projects[${index}].name`,$event)"></editable-span>
+                            </h3>
+                            <editable-span :value="project.link" @edit="onEdit(`projects[${index}].link`,$event)"></editable-span>
                         </div>
                         <div class="end">
-                            <span class="keyword">CSS3 jQuery 响应式</span>
+                            <editable-span :value="project.keywords" @edit="onEdit(`projects[${index}].keywords`,$event)"></editable-span>
                         </div>
                     </header>
-                    <p>我是如何做这个项目的我是如何做这个项目的我我是如何做这个项目的我是如何做这个项目的
-                        我是如何做这个项目的我是如何做这个项目的是如何做这个项目的我是如何做这个项目的</p>
+                    <p>
+                        <editable-span :value="project.description" @edit="onEdit(`projects[${index}].description`,$event)"></editable-span>
+                    </p>
+                        <span v-if="index>=2" @click="removeProject">X</span>
                 </li>
                     <li>
-                        <header>
-                            <div class="start">
-                                <h3 class="name">我的简历</h3>
-                                <span class="link">http://xxx/xxx</span>
-                            </div>
-                            <div class="end">
-                                <span class="keyword">CSS3 jQuery 响应式</span>
-                            </div>
-                        </header>
-
-                        <p>我是如何做这个项目的我是如何做这个项目的我我是如何做这个项目的我是如何做这个项目的
-                            我是如何做这个项目的我是如何做这个项目的是如何做这个项目的我是如何做这个项目的</p>
-                    </li>
-                    <li>
-                        <header>
-                            <div class="start">
-                                <h3 class="name">我的简历</h3>
-                                <span class="link">http://xxx/xxx</span>
-                            </div>
-                            <div class="end">
-                                <span class="keyword">CSS3 jQuery 响应式</span>
-                            </div>
-                        </header>
-
-                        <p>我是如何做这个项目的我是如何做这个项目的我我是如何做这个项目的我是如何做这个项目的
-                            我是如何做这个项目的我是如何做这个项目的是如何做这个项目的我是如何做这个项目的</p>
-                    </li>
-                    <li>
-                        <header>
-                            <div class="start">
-                                <h3 class="name">我的简历</h3>
-                                <span class="link">http://xxx/xxx</span>
-                            </div>
-                            <div class="end">
-                                <span class="keyword">CSS3 jQuery 响应式</span>
-                            </div>
-                        </header>
-
-                        <p>我是如何做这个项目的我是如何做这个项目的我我是如何做这个项目的我是如何做这个项目的
-                            我是如何做这个项目的我是如何做这个项目的是如何做这个项目的我是如何做这个项目的</p>
+                        <span @click="addProject">添加</span>
                     </li>
                 </ol>
             </section>
@@ -156,10 +122,13 @@
             </div>
         </form>
     </div>
+    <div v-show="shareVisible" class="share" v-cloak>
+        <h2>请把链接分享给面试官</h2>
+        <textarea readonly>{{shareLink}}</textarea>
+    </div>
 </div>
 <script src="../vendors/av-min.js"></script>
 <script src="./js/av.js"></script>
-
 <script src="../vendors/vue.min.js"></script>
 <script src="./js/editable-span.js"></script>
 <script src="./js/app.js"></script>
