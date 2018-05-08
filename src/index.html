@@ -21,14 +21,13 @@
             </ul>
         </div>
         <div class="down">
-            <button @click="onLogout">登出</button>
+            <button v-show="hasLogin()" @click="onLogout">登出</button>
         </div>
     </aside>
     <main>
         <div class="resume">
 
             <section class="profile">
-
                 <h1>
                     <editable-span :value="resume.name" @edit="onEdit('name',$event)"></editable-span>
                 </h1>
@@ -38,7 +37,7 @@
                 <p class="profile">
                     <editable-span :value="resume.birthday" @edit="onEdit('jobTitle',$event)"></editable-span>
                     |
-                    <editable-span :value="resume.gender" @edit="onEdit('jobTitle',$event)"></editable-span>
+                    <editable-span :value="resume.gender" @edit="onEdit('gender',$event)"></editable-span>
                     |
                     <editable-span :value="resume.email" @edit="onEdit('jobTitle',$event)"></editable-span>
                     |
@@ -48,22 +47,15 @@
             <section class="skills">
                 <h2>技能</h2>
                 <ul>
-                    <li>
-                        <span class="name">静态页面制作</span>
-                        <div class="description">完美实现设计稿</div>
+                    <li v-for="skill,index in resume.skills">
+                        <editable-span class="name" :value="skill.name" @edit="onEdit(`skills[${index}].name`,$event)"></editable-span>
+                        <div class="description">
+                            <editable-span :value="skill.description" @edit="onEdit(`skills[${index}].description`,$event)">
+                            </editable-span>
+                        </div>
+                        <span v-if="index>=4" @click="removeSkill(index)">X</span>
                     </li>
-                    <li>
-                        <span class="name">静态页面制作</span>
-                        <div class="description">完美实现设计稿</div>
-                    </li>
-                    <li>
-                        <span class="name">静态页面制作</span>
-                        <div class="description">完美实现设计稿</div>
-                    </li>
-                    <li>
-                        <span class="name">静态页面制作</span>
-                        <div class="description">完美实现设计稿</div>
-                    </li>
+                    <li><span @click="addSkill">添加</span></li>
                 </ul>
             </section>
             <section class="projects">
@@ -166,9 +158,11 @@
     </div>
 </div>
 <script src="../vendors/av-min.js"></script>
+<script src="./js/av.js"></script>
+
 <script src="../vendors/vue.min.js"></script>
 <script src="./js/editable-span.js"></script>
 <script src="./js/app.js"></script>
-<script src="./js/av.js"></script>
+
 </body>
 </html>

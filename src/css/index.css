@@ -19,6 +19,9 @@ button {
 body{
     font-size: 18px;
 }
+div[v-cloak]{
+    display: none;
+}
 @media (min-width: 500px) { /*PC上可以正常显示*/
     .page {
         height: 100vh;
