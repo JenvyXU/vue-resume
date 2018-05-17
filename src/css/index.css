@@ -60,3 +60,8 @@ div[v-cloak]{
     flex-grow: 1;/*左右占满屏幕*/
     overflow: auto; /*main可以滚动*/
 }
+.exitPreview{
+    position: fixed;
+    top:20px;
+    left:20px;
+}
