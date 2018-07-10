@@ -1,7 +1,108 @@
+*{box-sizing: border-box}
 .login{
-    position: fixed;
-    background: red;
-    height: 400px;
-    width: 300px;
-    margin: auto 0;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    width: 360px;
+    height: 460px;
+    background:#FFFFFF;
+    text-align: center;
+    border-radius: 40px;
+}
+.login>.topBar{
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    margin-bottom: 60px;
+    border-top-left-radius:40px ;
+    border-top-right-radius:40px ;
+
+}
+.login>.topBar>.left{
+    background:#FFFFFF;
+    position: relative;
+    width: 58%;
+    color:#8B8B8B;
+    padding: 20px 0;
+    border-top-left-radius:40px;
+    border-top-right-radius:40px;
+
+ }
+
+.login>.topBar>.right{
+    display: flex;
+    color: #FFFFFF;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right, #29AFC2, #0CE7A5);
+    width: 42%;
+    border-bottom-left-radius:40px;
+    border-top-right-radius:40px;
+}
+.login>.topBar>.right>a{
+
+
+}
+.login>.form>.row>input{
+    width: 250px;
+    color: #727272;
+    line-height: 35px;
+    border: none;
+    border-radius: 20px;
+    background: #EBEBEB;
+    margin: 8px 0;
+    padding: 0 15px;
+    outline: none;
+
+}
+.login>.form>.row>input::placeholder {
+    font-size: 12px;
+    color: #AAAAAA;
+}
+
+.login>.form>.action{
+    display: flex;
+    flex-direction: column;
+}
+.login>.form>.action>button{
+    background: #1EC4B6;
+    color: #F1FBFB;
+    font-size: 13px;
+    width: 100px;
+    line-height: 32px;
+    margin:30px auto 10px auto;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+}
+.login>.form>.action>p{
+    font-size: 12px;
+    margin-top:30px;
+    color: #9FA0A3;
+}
+.login>.form>.action>p>.sign-up{
+    color: #727272;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+.login>.form>.close{
+    background: #727272;
+    color: #F1FBFB;
+    font-size: 12px;
+    padding: 5px 10px;
+    line-height: 20px;
+    margin:10px auto 10px auto;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+}
+.login>.form>p{
+    margin-top: 100px;
+    font-size: 12px;
+    color:#727272 ;
+}
+.login>.form>p>i>a{
+    color: #1EC4B6;
 }
