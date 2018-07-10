@@ -1,7 +1,92 @@
 .signUp{
-    position: fixed;
-    background: red;
-    height: 400px;
-    width: 300px;
-    margin: auto 0;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    width: 360px;
+    height: 460px;
+    background:#ffffff;
+    text-align: center;
+    border-radius: 40px;
+    box-shadow: 3px 3px 9px 2px #ddd;
+}
+.signUp>.topBar{
+    background: linear-gradient(to bottom right, #29AFC2, #0CE7A5);
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 0;
+    margin-bottom: 50px;
+    border-top-left-radius:40px ;
+    border-top-right-radius:40px ;
+
+}
+
+.signUp>.topBar>.right>a{
+
+}
+.signUp>.form>.row>input{
+    width: 250px;
+    color: #727272;
+    line-height: 35px;
+    border: none;
+    border-radius: 20px;
+    background: #EBEBEB;
+    margin: 8px 0;
+    padding: 0 15px;
+    outline: none;
+
+}
+.signUp>.form>.row>input::placeholder {
+    font-size: 12px;
+    color: #AAAAAA;
+}
+
+.signUp>.form>.action{
+    display: flex;
+    flex-direction: column;
+}
+.signUp>.form>.action>button{
+    background: #1EC4B6;
+    color: #F1FBFB;
+    font-size: 13px;
+    width: 100px;
+    line-height: 32px;
+    margin:30px auto 10px auto;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+}
+.signUp>.form>.action>p{
+    font-size: 12px;
+    margin-top:30px;
+    color: #9FA0A3;
+}
+.signUp>.form>.action>p>.sign-up{
+    color: #727272;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+.signUp>.form>.close{
+    background: #727272;
+    color: #F1FBFB;
+    font-size: 12px;
+    padding: 5px 10px;
+    line-height: 20px;
+    margin:10px auto 10px auto;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+}
+.signUp>.form>p{
+    margin-top: 70px;
+    font-size: 12px;
+    color:#727272 ;
+}
+.signUp>.form>p>i>a{
+    color: #1EC4B6;
 }

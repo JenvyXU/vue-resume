@@ -18,6 +18,7 @@ button {
 }
 body{
     font-size: 18px;
+    background: #dbdcdb;
 }
 div[v-cloak]{
     display: none;
