@@ -22,6 +22,12 @@
     height: 5px;
     background: #2E2C2D;
  }
+section h2{
+    font-size: 25px;
+}
+section h3{
+    font-size: 20px;
+}
 section>header>h2>.icon{
     width: 1em; height: 1em;
     vertical-align: -0.15em;
@@ -155,7 +161,7 @@ section.skills>ul>li>h3>div{
     align-items: center;
 }
 section.skills>ul>li>.description{
-    padding-left: 25px;
+    padding-left: 28px;
     padding-top: 5px;
     font-size: 14px;
 }
@@ -242,7 +248,7 @@ section.projects .link>span{
 }
 
 section.projects>ol>li>p{
-    font-size: 16px;
+    font-size: 14px;
     padding-left: 25px;
 }
 section.projects>ol>li> textarea{
@@ -267,7 +273,7 @@ section.education>header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
 }
 section.education h2{
     display: flex;
@@ -275,15 +281,17 @@ section.education h2{
 }
 
 section.education>ul{
-    margin-left: 37px;
+    margin-left: 35px;
 }
 section.education>ul>li{
     position: relative;
-    font-size: 16px;
+    font-size: 14px;
 }
 section.education>ul>li>.remove{
     position: absolute;
     right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 section.education>ul>li>.remove .icon{
     cursor: pointer;
@@ -300,3 +308,58 @@ section.education .year{width: 160px}
 section.education .school{width: 200px}
 section.education .major{width:250px;}
 section.education .education{  width: 80px;}
+
+
+/*编辑模式下的样式*/
+/*profile*/
+section input{
+    border: 1px solid rgb(169, 169, 169);
+    border-radius: 8px;
+    padding: 2px 6px;
+    outline: none;
+}
+section.profile input{
+    border-radius: 8px;
+    padding: 2px 6px;
+    outline: none;
+
+}
+section.profile .myname input{
+    margin-left: 64px;
+}
+
+/*skills*/
+section.skills input{
+
+}
+section.skills>ul>li>h3 .name{
+    display: flex;
+    align-items: center;
+}
+section.skills>ul>li>.description textarea{
+    resize: none;
+    outline: none;
+    border-radius: 8px;
+    padding: 6px 6px;
+    width: 100%;
+    height: 100px;
+    margin-left: 4px;
+}
+/*项目经理*/
+section.projects input{
+    width: 300px;
+    margin: 3px 0;
+    border-radius: 8px;
+    padding: 2px 6px;
+    outline: none;
+}
+section.projects textarea{
+    resize: none;
+    outline: none;
+    border-radius: 8px;
+    padding: 6px 6px;
+    width: 96%;
+    height: 200px;
+    margin-top: 4px;
+}
+
