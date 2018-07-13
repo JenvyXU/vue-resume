@@ -1,54 +1,56 @@
-let app = new Vue({
-    el: '#app',
-    data: {
-        shareLink:'',
-        editingName: false,
-        loginVisible: false,
-        signUpVisible: false,
-        shareVisible: false,
-        skinPickerVisible:false,
-        previewUser: {
-            objectId: undefined,
-        },
-        previewResume: {},
-        currentUser: {
-            objectId: undefined,
-            email: '',
-        },
-        resume: {
-            name: '姓名',
-            gender: '女',
-            birthday: '1990年1月',
-            jobTitle: '前端工程师',
-            phone: '13800000000',
-            email: 'example@example.com',
-            skills: [
-                {name: '请填写技能名称', description: '请填写技能描述'},
-                {name: '请填写技能名称', description: '请填写技能描述'},
-                {name: '请填写技能名称', description: '请填写技能描述'},
-                {name: '请填写技能名称', description: '请填写技能描述'},
-            ],
-            projects: [
-                {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'},
-                {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'},
-            ]
-        },
-        mode: 'edit',
-    },
-    computed: {
-        displayResume(){
-            console.log('1111'+this.mode);
-            return this.mode === 'preview' ? this.previewResume : this.resume
-        }
-    },
-    watch: {
-        'currentUser.objectId': function (newValue, oldValue) {
-            if (newValue) {
-                this.getResume(this.currentUser).then((resume)=>this.resume=resume)
-            }
+window.App={
+    props:['resume','logout-visible','current-user','url','display-resume'],
+    template:`
+    <div>        
+         <top-bar v-show="mode==='edit'" @save="onClickSave" @share="onShare" :logout-visible="logoutVisible"
+         @print="printResume" @changeTheme="skinPickerVisible=true" @logout="onLogout" @edit="editing=!editing" 
+         ></top-bar>
+         <main>
+            <resume :editing="editing" :mode="mode" :display-resume="displayResume" :resume="resume"></resume>
+        </main>   
+        <share :share-link="url"  v-show="shareVisible" @close="shareVisible=false"></share>
+ 
+        <skin-picker v-show="skinPickerVisible" @close="skinPickerVisible=false"></skin-picker>
+    </div>
+    `,
+    data(){
+        return {
+            editing:false,
+            shareLink:'',
+            shareVisible:false,
+            editingName: false,
+            skinPickerVisible:false,
+            previewUser: {
+                objectId: undefined,
+            },
+            previewResume: {},
+/*            currentUser: {
+                objectId: undefined,
+                email: '',
+            },*/
+/*            resume: {
+                name: 'xzw',
+                gender: 'boy',
+                birthday: '1999年1月',
+                jobTitle: '工程师',
+                phone: '1388888888',
+                email: 'example@example.com',
+                skills: [
+                    {name: '请填写技能名称', description: '请填写技能描述'},
+                    {name: '请填写技能名称', description: '请填写技能描述'},
+                    {name: '请填写技能名称', description: '请填写技能描述'},
+                    {name: '请填写技能名称', description: '请填写技能描述'},
+                ],
+                projects: [
+                    {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'},
+                    {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'},
+                ]
+            },*/
+            mode: 'edit',
         }
     },
     methods: {
+
         onShare(){
             if(this.hasLogin()){
                 this.shareVisible=true
@@ -56,21 +58,9 @@ let app = new Vue({
                 alert('请先登录')
             }
         },
-        onEdit(key, value){
-            let regex = /\[(\d+)\]/g
-            key = key.replace(regex, (match, number) => `.${number}`)
-            // key = skills.0.name
-            keys = key.split('.')
-            let result = this.resume
-            for (let i = 0; i < keys.length; i++) {
-                if (i === keys.length - 1) {
-                    result[keys[i]] = value
-                } else {
-                    result = result[keys[i]]
-                }
-            }
-        },
         hasLogin () {
+            console.log('userId')
+            console.log(this.currentUser.objectId)
             return !!this.currentUser.objectId
         },
         onLogin(user){
@@ -86,7 +76,7 @@ let app = new Vue({
         onClickSave(){
             let currentUser = AV.User.current()
             if (!currentUser) {
-                this.loginVisible = true
+                this.$router.push('/login')
             } else {
                 this.saveResume()
             }
@@ -111,33 +101,11 @@ let app = new Vue({
                 // 异常处理
             });
         },
+        printResume(){
+            window.print()
+        }
 
-    }
-})
-
-
-// 获取当前用户
-let currentUser = AV.User.current()
-console.log(1);
-if(currentUser){
-    app.currentUser = currentUser.toJSON()
-    app.shareLink = location.origin + location.pathname + '?user_id=' + app.currentUser.objectId
-    app.getResume(app.currentUser).then(resume=>{
-        app.resume = resume
-    })
+    },
 }
+Vue.component('app',App)
 
-
-// 获取预览用户的 id
-let search = location.search
-let regex = /user_id=([^&]+)/
-let matches = search.match(regex)
-let userId
-if (matches) {
-    userId = matches[1]
-    app.mode = 'preview'
-    console.log(app.mode);
-    app.getResume({objectId: userId}).then(resume => {
-        app.previewResume = resume
-    })
-}

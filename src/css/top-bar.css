@@ -1,4 +1,5 @@
 .page .topBar{
+    min-width: 1200px;
     position: fixed;
     align-items: center;
     justify-content: space-between;
@@ -58,4 +59,3 @@
     fill: currentColor;
     overflow: hidden;
 }
-

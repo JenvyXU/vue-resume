@@ -3,6 +3,7 @@ Vue.component('share',{
     template:`
     <div class="share" v-cloak>
         <h2>请把链接分享给面试官</h2>
+        <button @click="$emit('close')">关闭</button>
         <textarea readonly>{{shareLink}}</textarea>
     </div>
     `,

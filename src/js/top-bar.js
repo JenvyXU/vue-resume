@@ -1,5 +1,9 @@
 Vue.component('top-bar',{
     props:['logout-visible'],
+    data(){
+        return {
+        }
+    },
     template:`
         <div class="topBar">
              <div class="left">
@@ -8,7 +12,7 @@ Vue.component('top-bar',{
                     <li><button class="button" @click="$emit('changeTheme')">换肤</button></li>             
                     <li><button class="button" @click="$emit('print')">打印</button></li>
                     <li><button class="button" @click="$emit('share')">分享</button></li>
-                    <li><button class="button" @click="$emit('edit')">编辑</button></li> 
+                    <li><button class="button"  @click="$emit('edit')">编辑</button></li> 
                     <li><button class="button" @click="$emit('save')">保存</button></li>
                 </ul>
             </div>

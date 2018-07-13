@@ -1,4 +1,4 @@
-Vue.component('signUP',{
+window.SignUp ={
     data(){
         return {
             signUp: {
@@ -27,22 +27,24 @@ Vue.component('signUP',{
     },
     template:`
         <div class="signUp" v-cloak>
-        <form @submit.prevent="onSignUp" class="form">
-            <h2>注册</h2>
-            <button type=button @click="signUpVisible=false">关闭</button>
-            <div class="row">
-                <label>邮箱</label>
-                <input v-model="signUp.email">
+            <div class="topBar">
+                <h2>注册</h2>
             </div>
-            <div class="row">
-                <label>密码</label>
-                <input type="password" v-model="signUp.password">
-            </div>
-            <div class="action">
-                <button type="submit">提交</button>
-                <a @click="onClickLogin" href="#">登录</a>
-            </div>
-        </form>
-    </div>
+            <form @submit.prevent="onSignUp" class="form">
+                <div class="row">
+                    <input v-model="signUp.email" placeholder="邮箱">
+                </div>
+                <div class="row">
+                    <input type="password" v-model="signUp.password" placeholder="密码">
+                </div>
+                <div class="action">
+                    <p>已注册账号？去登陆<router-link class="sign-up" to="/login">登陆</router-link></p>
+                    <button type="submit">提交</button>
+                </div>
+                   <router-link class="close" to="/">回到首页</router-link>
+                    <p><i>Designed By <a href="https://github.com/JenvyXU" target="_blank">JenvyXU</a></i></p>
+            </form>
+        </div>
     `,
-})
+}
+Vue.component('signUp',SignUp)

@@ -9,6 +9,7 @@ Vue.component('skinPicker',{
     <div class="skinPiker">
         <button @click="setTheme('default')">默认</button>
         <button @click="setTheme('dark')">暗黑</button>
+        <button @click="$emit('close')">关闭</button>
     </div>
     `,
 })
