@@ -2,8 +2,16 @@ Vue.component('share',{
     props:['share-link'],
     template:`
     <div class="share" v-cloak>
-        <h2>请把链接分享给面试官</h2>
-        <button @click="$emit('close')">关闭</button>
+        <h2>       
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-share"></use>
+            </svg>
+            分享链接
+        </h2>
+        <div class="closeShare" @click="$emit('close')">  
+                  <svg class="icon" aria-hidden="true">
+                          <use xlink:href="#icon-close"></use>
+                  </svg></div>
         <textarea readonly>{{shareLink}}</textarea>
     </div>
     `,

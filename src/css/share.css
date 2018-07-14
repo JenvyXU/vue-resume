@@ -1,17 +1,53 @@
 .share{
+    border-radius: 20px;
+    background:#FFFFFF ;
     position: fixed;
-    background: white;
     box-shadow: 0 0 5px black;
     min-width: 300px;
     transform: translate(-50%,-50%);
     top: 50%;
     left: 50%;
-    padding: 20px;
+    padding: 15px 20px;
+}
+.share>h2{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 23px;
+    color: #000000;
+}
+.share>h2>.icon{
+    width: 35px;
+    height: 35px;
+    vertical-align: -0.15em;
+    fill: #35C759;
+    overflow: hidden;
+    padding: 0;
+    margin-right: 12px;
 }
 .share>textarea{
+    font-family: inherit;
+    color: #999999;
+    background: #FFFFFF;
+    font-size: 16px;
     word-break: break-all;
-    width:100%;
-    resize: none;//不允许拖动
-    height: 4em;
-
+    border: none;
+    outline: none;
+    width:300px;
+    resize: none;
+    min-height: 80px;
+    margin: 0 50px;
+}
+.share >.closeShare{
+    position: absolute;
+    top:0;
+    right:0;
+    transform: translate(40%,-30%);
+}
+.share >.closeShare .icon{
+    width: 1.6em; height: 1.6em;
+    vertical-align: -0.15em;
+    fill: #DD0033;
+    overflow: hidden;
+    cursor: pointer;
 }

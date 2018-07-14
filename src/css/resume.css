@@ -1,8 +1,9 @@
 .resume{
+    box-shadow:3px 3px 10px 5px rgba(16, 15, 15, 0.3);
     width: 900px;
     margin: 50px auto 100px auto;
     background: #FFFFFF;
-    padding: 20px 50px 20px 50px;
+    padding: 20px 50px 80px 50px;
 }
 .resume>section{
     position: relative;
@@ -41,7 +42,8 @@ section>header>.add{
 }
 section>header>.add .icon{
     cursor: pointer;
-    width: 1em; height: 1em;
+    width: 15px;
+    height: 15px;
     vertical-align: -0.15em;
     fill: currentColor;
     overflow: hidden;
@@ -51,13 +53,15 @@ margin-right: -10px;
 }
 section .remove .icon{
     cursor: pointer;
-    width: 1em; height: 1em;
+    width: 15px;
+    height: 15px;
     vertical-align: -0.15em;
     fill: currentColor;
     overflow: hidden;
 }
 section .dot.icon{
-    width: 1em; height: 1em;
+    width: 15px;
+    height: 15px;
     vertical-align: -0.15em;
     fill: currentColor;
     overflow: hidden;
@@ -133,7 +137,7 @@ section.skills>header>h2{
     align-items: center;
 }
 section.skills>ul{
-    margin-left: 10px;
+    margin-left: 13px;
 }
 section.skills>ul>li{
     font-size: 13px;
@@ -152,8 +156,8 @@ section.skills>ul>li>h3>.remove{
     align-items: center;
 }
 section.skills>ul>li>h3 .icon{
-    width: 0.9em;
-    height:0.9em;
+    width: 15px;
+    height: 15px;
 }
 section.skills>ul>li>h3>div{
     display: flex;
@@ -181,7 +185,7 @@ section.projects h2{
 }
 
 section.projects>header>h2>.icon{
-    width: 0.8em; height: 0.8em;
+    width: 1em; height: 1em;
     vertical-align: -0.15em;
     fill: currentColor;
     overflow: hidden;
@@ -196,7 +200,7 @@ section.projects h3>.projectName{
 }
 
 section.projects>ol{
-    margin-left: 8px;
+    margin-left: 13px;
 }
 section.projects>ol>li{
     padding-bottom: 10px;
@@ -222,7 +226,7 @@ section.projects>ol>li>header>h3>.left>.editableSpan.keywords{
     top:0px;
 }
 section.projects>ol>li>header>.linkWrapper{
-    margin-left: 25px;
+    margin-left: 21px;
     font-weight: lighter;
     display: flex;
     align-items: center;
@@ -249,7 +253,8 @@ section.projects .link>span{
 
 section.projects>ol>li>p{
     font-size: 14px;
-    padding-left: 25px;
+    padding-left: 21px;
+    padding-right: 25px;
 }
 section.projects>ol>li> textarea{
     width: 798px;
@@ -295,7 +300,8 @@ section.education>ul>li>.remove{
 }
 section.education>ul>li>.remove .icon{
     cursor: pointer;
-    width: 1.1em; height: 1.1em;
+    width: 15px;
+    height: 15px;
     vertical-align: -0.15em;
     fill: currentColor;
     overflow: hidden;
@@ -309,7 +315,6 @@ section.education .school{width: 200px}
 section.education .major{width:250px;}
 section.education .education{  width: 80px;}
 
-
 /*编辑模式下的样式*/
 /*profile*/
 section input{
@@ -317,6 +322,7 @@ section input{
     border-radius: 8px;
     padding: 2px 6px;
     outline: none;
+    margin-left: 3px;
 }
 section.profile input{
     border-radius: 8px;
@@ -330,7 +336,7 @@ section.profile .myname input{
 
 /*skills*/
 section.skills input{
-
+    width:347px;
 }
 section.skills>ul>li>h3 .name{
     display: flex;
@@ -343,9 +349,8 @@ section.skills>ul>li>.description textarea{
     padding: 6px 6px;
     width: 100%;
     height: 100px;
-    margin-left: 4px;
 }
-/*项目经理*/
+/*项目经历*/
 section.projects input{
     width: 300px;
     margin: 3px 0;
@@ -363,3 +368,20 @@ section.projects textarea{
     margin-top: 4px;
 }
 
+
+/*education*/
+section.education input{
+    margin: 2px 0;
+}
+section.education>ul>li>.year input{
+    width:150px;
+}
+section.education>ul>li>.school input{
+    width:190px;
+}
+section.education>ul>li>.major input{
+    width:240px;
+}
+section.education>ul>li>.education input{
+    width:80px;
+}

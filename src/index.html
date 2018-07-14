@@ -5,7 +5,7 @@
     <title>简历编辑器</title>
     <link href="css/index.css" rel="stylesheet"/>
     <link href="css/themes/default.css" rel="stylesheet"/>
-    <link href="css/themes/dark.css" rel="stylesheet"/>
+    <link href="css/themes/colors.css" rel="stylesheet"/>
     <link href="css/editable-span.css" rel="stylesheet"/>
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/top-bar.css">
@@ -19,11 +19,11 @@
 <div id="root" class="page">
     <router-view  :resume="resume" :logout-visible="logoutVisible" :current-user="currentUser"
                   :sss="shareVisible" @login="onLogin" :url="shareLink"
-                  :display-resume="displayResume"></router-view>
+                  :display-resume="displayResume" :email="currentUser.email"></router-view>
 
     <button v-if="mode==='preview'" @click="mode='edit'" class="exitPreview">退出预览</button>
 </div>
-<script src="//at.alicdn.com/t/font_686696_i6fiqamj60i.js"></script>
+<script src="//at.alicdn.com/t/font_686696_qu2jc2kp4bs.js"></script>
 <script src="../vendors/av-min.js"></script>
 <script src="../vendors/vue.js"></script>
 <script src="../vendors/vue-router.min.js"></script>

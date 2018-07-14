@@ -1,16 +1,16 @@
 window.App={
-    props:['resume','logout-visible','current-user','url','display-resume'],
+    props:['resume','logout-visible','current-user','url','display-resume','email'],
     template:`
     <div>        
          <top-bar v-show="mode==='edit'" @save="onClickSave" @share="onShare" :logout-visible="logoutVisible"
-         @print="printResume" @changeTheme="skinPickerVisible=true" @logout="onLogout" @edit="editing=!editing" 
+         @print="printResume" @changeTheme="skinPickerVisible=true" @logout="onLogout" @edit="editing=!editing"  :username="email"
          ></top-bar>
          <main>
             <resume :editing="editing" :mode="mode" :display-resume="displayResume" :resume="resume"></resume>
         </main>   
         <share :share-link="url"  v-show="shareVisible" @close="shareVisible=false"></share>
- 
-        <skin-picker v-show="skinPickerVisible" @close="skinPickerVisible=false"></skin-picker>
+         <skin-picker v-show="skinPickerVisible" @close="skinPickerVisible=false"></skin-picker>
+<!--        <skin-picker v-show="skinPickerVisible" @close="skinPickerVisible=false"></skin-picker>-->
     </div>
     `,
     data(){

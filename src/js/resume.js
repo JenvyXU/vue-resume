@@ -45,7 +45,7 @@ Vue.component('resume',{
             <section class="profile">
                 <div class="about">
                     <h1>
-                        <editable-span :editing="editing"  :disabled="mode==='preview'" :value="displayResume.name" @edit="onEdit('name',$event)"></editable-span>
+                        <editable-span class="myname" :editing="editing"  :disabled="mode==='preview'" :value="displayResume.name" @edit="onEdit('name',$event)"></editable-span>
                     </h1>
                     <p>
                        应聘职位: <editable-span :editing="editing"  :disabled="mode==='preview'" :value="displayResume.jobTitle" @edit="onEdit('jobTitle',$event)"></editable-span>

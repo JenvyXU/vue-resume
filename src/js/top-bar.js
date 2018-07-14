@@ -1,5 +1,5 @@
 Vue.component('top-bar',{
-    props:['logout-visible'],
+    props:['logout-visible','username'],
     data(){
         return {
         }
@@ -16,12 +16,12 @@ Vue.component('top-bar',{
                     <li><button class="button" @click="$emit('save')">保存</button></li>
                 </ul>
             </div>
-            <div class="right">
+            <div class="right" v-show="logoutVisible">
                 <svg class="icon" aria-hidden="true">
                     <use xlink:href="#icon-user"></use>
-                </svg>
-                <div class="userName">JenvyXU</div>
-                <button class="button" v-show="logoutVisible" @click="$emit('logout')">登出</button>
+                    </svg>
+                <div class="userName" v-show="logoutVisible">{{username}}</div>
+                <button class="button" v-show="logoutVisible" @click="$emit('logout')">注销</button>
             </div>
         </div>
     `,
