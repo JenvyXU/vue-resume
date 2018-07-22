@@ -1,5 +1,5 @@
 * {margin: 0;padding: 0;}
-*, *::before, *::after {box-sizing: border-box;}
+*, *::before, *::after{box-sizing: border-box;}
 a{text-decoration: none;color: inherit;}
 ul, ol {list-style: none;}
 button {
@@ -7,7 +7,7 @@ button {
 }
 body{
     font-size: 18px;
-    background: #ddd;
+    background:#B4B5C6;
 }
 div[v-cloak]{
     display: none;
@@ -21,6 +21,7 @@ div[v-cloak]{
 .page{
     margin-top: 60px;
     margin-bottom: 100px;
+    background: #B4B5C6;
 }
 .page>div>main {
 
@@ -29,12 +30,23 @@ div[v-cloak]{
      width: 100%;
      margin: 0 auto 0 auto;
  }
-.page>div>main{
-    width: 100%;
+.page>div>main{width: 100%;
 }
 
 .exitPreview{
+    font-size: 16px;
     position: fixed;
-    top:20px;
-    left:20px;
+    color: #FFFFFF;
+    background: #A0A0A0;
+    padding: 5px 10px;
+    top:40px;
+    right:40px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    opacity: 0.7;
+}
+.exitPreview:hover{
+    opacity: 1;
 }

@@ -1,16 +1,15 @@
 window.App={
-    props:['resume','logout-visible','current-user','url','display-resume','email'],
+    props:['resume','logout-visible','current-user','url','display-resume','email','mode'],
     template:`
     <div>        
          <top-bar v-show="mode==='edit'" @save="onClickSave" @share="onShare" :logout-visible="logoutVisible"
-         @print="printResume" @changeTheme="skinPickerVisible=true" @logout="onLogout" @edit="editing=!editing"  :username="email"
-         ></top-bar>
+         @print="printResume" @changeTheme="skinPickerVisible=true" @logout="onLogout" @edit="editing=!editing" :username="email"
+         :mode="mode"></top-bar>
          <main>
             <resume :editing="editing" :mode="mode" :display-resume="displayResume" :resume="resume"></resume>
         </main>   
         <share :share-link="url"  v-show="shareVisible" @close="shareVisible=false"></share>
-         <skin-picker v-show="skinPickerVisible" @close="skinPickerVisible=false"></skin-picker>
-<!--        <skin-picker v-show="skinPickerVisible" @close="skinPickerVisible=false"></skin-picker>-->
+        <button v-cloak v-if="mode==='preview'" @click="$emit('exit-preview')" class="exitPreview">退出预览</button>
     </div>
     `,
     data(){
@@ -19,34 +18,10 @@ window.App={
             shareLink:'',
             shareVisible:false,
             editingName: false,
-            skinPickerVisible:false,
             previewUser: {
                 objectId: undefined,
             },
             previewResume: {},
-/*            currentUser: {
-                objectId: undefined,
-                email: '',
-            },*/
-/*            resume: {
-                name: 'xzw',
-                gender: 'boy',
-                birthday: '1999年1月',
-                jobTitle: '工程师',
-                phone: '1388888888',
-                email: 'example@example.com',
-                skills: [
-                    {name: '请填写技能名称', description: '请填写技能描述'},
-                    {name: '请填写技能名称', description: '请填写技能描述'},
-                    {name: '请填写技能名称', description: '请填写技能描述'},
-                    {name: '请填写技能名称', description: '请填写技能描述'},
-                ],
-                projects: [
-                    {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'},
-                    {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'},
-                ]
-            },*/
-            mode: 'edit',
         }
     },
     methods: {
@@ -55,7 +30,7 @@ window.App={
             if(this.hasLogin()){
                 this.shareVisible=true
             }else{
-                alert('请先登录')
+                alert('请点击保存按钮登录')
             }
         },
         hasLogin () {

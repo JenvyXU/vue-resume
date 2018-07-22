@@ -10,10 +10,10 @@ window.Login={
         onLogin(e){
             AV.User.logIn(this.login.email, this.login.password).then((user) => {
                 user = user.toJSON()
-                console.log(user)
                 //this.$emit('login',user)
                 this.$emit('login',user)
                 this.$router.push({path:'/'})
+
                 //this.currentUser.objectId = user.objectId
                 //this.currentUser.email = user.email
                 //this.loginVisible = false
@@ -31,7 +31,7 @@ window.Login={
     },
     template:`
        <div class="login" v-cloak>
-       <div class="topBar">
+       <div class="loginTopBar">
             <h2>登陆</h2>
         </div>
         <form @submit.prevent="onLogin" class="form">

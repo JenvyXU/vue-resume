@@ -1,118 +1,134 @@
 .resume{
     box-shadow:3px 3px 10px 5px rgba(16, 15, 15, 0.3);
-    width: 900px;
+    width: 930px;
     margin: 50px auto 100px auto;
-    background: #FFFFFF;
-    padding: 20px 50px 80px 50px;
+    background: #FEFEFE;
 }
-.resume>section{
-    position: relative;
-    border-top: 3px solid #ddd;
-    margin: 10px 0;
-    padding: 10px 0 50px 0;
-}
-.resume>section.skills::after,
-.resume>section.projects::after,
-.resume>section.education::after{
+.resume::before,
+.resume::after{
     content: '';
-    position: absolute;
-    top: -4px;
-    left: 0;
     display: block;
-    width: 8%;
-    height: 5px;
-    background: #2E2C2D;
- }
-section h2{
-    font-size: 25px;
+    width: 100%;
+    height: 50px;
+    background: #EBEBEB;
 }
-section h3{
-    font-size: 20px;
-}
-section>header>h2>.icon{
-    width: 1em; height: 1em;
-    vertical-align: -0.15em;
-    fill: currentColor;
-    overflow: hidden;
-    margin-right: 10px;
-}
-section>header>.add{
-    display: inline-block;
-    margin-right: 10px;
-}
-section>header>.add .icon{
-    cursor: pointer;
-    width: 15px;
-    height: 15px;
-    vertical-align: -0.15em;
-    fill: currentColor;
-    overflow: hidden;
-}
-section .remove{
-margin-right: -10px;
-}
-section .remove .icon{
-    cursor: pointer;
-    width: 15px;
-    height: 15px;
-    vertical-align: -0.15em;
-    fill: currentColor;
-    overflow: hidden;
-}
-section .dot.icon{
-    width: 15px;
-    height: 15px;
-    vertical-align: -0.15em;
-    fill: currentColor;
-    overflow: hidden;
-    margin-right: 10px;
-}
-.resume>section>h1{
-}
-.resume>section>h2{
-    font-size: 20px;
-    margin-bottom: 13px;
-}
-
 
 /*profile*/
 
-.resume>section.profile{
-    color: #2A2A2A;
+.resume>.profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 40px;
+}
+.resume>.profile::after{
+    content: '';
+    display: block;
+    width: 88%;
+    height: 15px;
+    background: #F6F6F6;
+    margin-top: 30px;
+}
+.resume>.profile>h1{
+    font-size: 50px;
+    color: #535353;
+    letter-spacing: 10px;
+}
+.resume>.profile>p{
+    margin-top: 10px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #535353;
+}
+.resume>.profile>.private{
+    margin-top: 5px;
+    display: flex;
+    font-size: 16px;
+}
+.resume>.profile>.private>div{
     display: flex;
     align-items: center;
-    border-top: 0;
-    padding:90px 0 50px 0;
+    margin: 0 10px;
 }
-.resume>section.profile>.about{
-    display: flex;
-    padding-right: 10px;
-    flex-direction: column;
-    align-items: flex-start;
-    font-size: 14px;
- }
-.resume>section.profile>.about h1{
-    margin-bottom: 8px;
-    font-size: 45px;
-}
-.resume>section.profile p{
-    padding-bottom: 6px;
-    font-weight: bold;
-}
-.resume>section.profile>.private{
-    font-size: 16px;
-    padding-left: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-}
-.resume>section.profile>.private .icon{
+.resume>.profile .icon{
     width: 1em; height: 1em;
     vertical-align: -0.15em;
     fill: currentColor;
     overflow: hidden;
-    margin-right: 6px;
+    margin-right: 5px;
+}
+
+
+/*简历下部分*/
+
+
+
+.resume>.resumeDown{
+    display: flex;
+}
+.resume>.resumeDown>.resumeLeft>section{
+    color: #575757;
+    font-size: 16px;
+    padding-left: 60px;
+    padding-right: 25px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.resume>.resumeDown>.resumeLeft section>header{
+    width: 100%;
+    margin-bottom: 25px;
+    padding-bottom: 6px;
+    font-size: 16px;
+    border-bottom: 1px solid #B6B6B6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.resume>.resumeDown section>header>h2{
+    font-size: 20px;
+}
+
+.resume>.resumeDown>.resumeLeft{
+    border-right: 1px solid #BFBFBF;
+    width:28%;
+}
+
+.resume>.resumeDown>.resumeRight{
+    width:72%;
+}
+.resume>.resumeDown>.resumeLeft>section.contact{
+    font-size: 16px;
+    padding-left: 60px;
+    padding-right: 25px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.resume>.resumeDown>.resumeLeft>section.contact>.father{
+    display: flex;
+}
+.resume>.resumeDown>.resumeLeft>section.contact>.father>.son{
+    font-size: 14px;
+    position: relative;
+    width: 144px;
+    margin-bottom: 10px;
+    word-break: break-all;
+}
+.resume>.resumeDown>.resumeLeft>section.contact>div>span{
+
+}
+
+.resume>.resumeDown>.resumeLeft>section.contact .icon{
+    width: 20px; height: 20px;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+    margin-right: 10px;
 }
 
 
@@ -120,69 +136,135 @@ section .dot.icon{
 /*skills*/
 
 
-section.skills>ul{
-    margin-right: 6px;
-    display: flex;
-    flex-wrap: wrap;/*一行两个*/
-    justify-content: space-between;
+
+
+.resume>.resumeDown>.resumeLeft>section.education{
+
 }
-section.skills>header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-section.skills>header>h2{
-    font-size: 25px;
+.resume>.resumeDown>.resumeLeft>section.education>ul>li>h3{
+    font-size: 16px;
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
 }
-section.skills>ul{
-    margin-left: 13px;
+.resume>.resumeDown>.resumeLeft>section.education>ul>li>.year{
+    display: block;
+    font-size: 12px;
+    margin-bottom: 12px;
 }
-section.skills>ul>li{
-    font-size: 13px;
-    width: 50%;
-    padding: 5px 15px 5px 0;
+.resume>.resumeDown>.resumeLeft>section.education>ul>li>.school{
+    display: block;
+    font-size: 12px;
+    margin-bottom: 6px;
 }
 
-section.skills>ul>li>h3{
-    font-size: 20px;
+.resume>.resumeDown>.resumeLeft>section.education{}
+.resume>.resumeDown>.resumeLeft>section.education{}
+
+.resume>.resumeDown>.resumeLeft>section.skills>ul>li>h3 .icon{
+    width: 0.7em; height: 0.7em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+    margin-right: 5px;
+}
+.resume>.resumeDown>.resumeLeft>section.skills>ul{
+    width: 100%;
+}
+.resume>.resumeDown>.resumeLeft>section.skills>ul>li{
+    margin-bottom: 25px;
+}
+.resume>.resumeDown>.resumeLeft>section.skills>ul>li>h3{
+    width: 100%;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+
+.resume>.resumeDown>.resumeLeft>section.skills>ul>li>h3>div{
+    display: flex;align-items: center;
+}
+.resume>.resumeDown>.resumeLeft>section.skills>ul>li>h3>.percentage{
+    font-weight: lighter;
+    font-size: 12px;
+}
+.resume>.resumeDown>.resumeLeft>section.skills>ul>li>#process{
+    background: #BFBFBF;
+    height: 4px;
+}
+
+
+
+.resume>.resumeDown>.resumeRight>section{
+    color: #575757;
+    font-size: 16px;
+    padding-left: 25px;
+    padding-right: 60px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.resume>.resumeDown>.resumeRight section>header{
+    width: 100%;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #B7B7B7;
+    padding-bottom: 6px;
+    font-size: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-section.skills>ul>li>h3>.remove{
-    display: flex;
-    align-items: center;
-}
-section.skills>ul>li>h3 .icon{
-    width: 15px;
-    height: 15px;
-}
-section.skills>ul>li>h3>div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-section.skills>ul>li>.description{
-    padding-left: 28px;
-    padding-top: 5px;
+
+.resume>.resumeDown>.resumeRight>section.aboutme>p{
     font-size: 14px;
 }
 
-/*projects*/
-
-
-
-section.projects>header{
+.resume>.resumeDown>.resumeRight>section.projects>ol{
+    width: 100%;
+}
+.resume>.resumeDown>.resumeRight>section.projects>ol>li>header>h3{
+    width: 100%;
+    font-size: 16px;
+}
+.resume>.resumeDown>.resumeRight>section.projects>ol>li>header>h3>.left{
+    width: 80%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: space-between;
 }
-section.projects h2{
+.resume>.resumeDown>.resumeRight>section.projects>ol>li>p{
+    font-size: 14px;
+    line-height: 1.5;
+}
+.resume>.resumeDown>.resumeRight>section.projects>ol>li{
+    margin-bottom: 40px;
+}
+
+.resume>.resumeDown>.resumeRight>section.projects>ol>li>header>.linkWrapper{
     display: flex;
     align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
+.resume>.resumeDown>.resumeRight>section.projects>ol>li>header>.linkWrapper>a{
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
+.resume>.resumeDown>.resumeRight>section.projects .linkWrapper>a .icon{
+    width: 0.8em; height: 0.8em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+
+/*projects*/
+
 
 section.projects>header>h2>.icon{
     width: 1em; height: 1em;
@@ -190,21 +272,6 @@ section.projects>header>h2>.icon{
     fill: currentColor;
     overflow: hidden;
     margin-right: 10px;
-}
-section.projects>ol>li>header .dot.icon{
-    margin-right: 1px;
-}
-
-section.projects h3>.projectName{
-    margin-right: 100px;
-}
-
-section.projects>ol{
-    margin-left: 13px;
-}
-section.projects>ol>li{
-    padding-bottom: 10px;
-    margin-top: 5px;
 }
 section.projects>ol>li>header>h3{
     position: relative;
@@ -225,24 +292,7 @@ section.projects>ol>li>header>h3>.left>.editableSpan.keywords{
     right: 50px;
     top:0px;
 }
-section.projects>ol>li>header>.linkWrapper{
-    margin-left: 21px;
-    font-weight: lighter;
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-}
-section.projects>ol>li>header>.linkWrapper>a{
-    margin-left: 5px;
-    margin-bottom: 3px;
-}
-section.projects .linkWrapper>a .icon{
-    width: 0.8em; height: 0.8em;
-    vertical-align: -0.15em;
-    fill: currentColor;
-    overflow: hidden;
-    margin-right: 10px;
-}
+
 section.projects .link>span{
     display: inline-block;
     max-width: 200px;
@@ -253,8 +303,6 @@ section.projects .link>span{
 
 section.projects>ol>li>p{
     font-size: 14px;
-    padding-left: 21px;
-    padding-right: 25px;
 }
 section.projects>ol>li> textarea{
     width: 798px;
@@ -269,78 +317,90 @@ section.projects>ol>li>p .description{
     white-space:pre-wrap;
     word-wrap : break-word ;
 }
-
-
-/*education*/
-
-
-section.education>header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-section.education h2{
-    display: flex;
-    align-items: center;
-}
-
-section.education>ul{
-    margin-left: 35px;
-}
-section.education>ul>li{
-    position: relative;
+.profile input{
     font-size: 14px;
+    padding: 2px 6px;
 }
-section.education>ul>li>.remove{
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+
+.profile>p input{
+    margin-bottom: 10px;
+    width: 210px;
 }
-section.education>ul>li>.remove .icon{
-    cursor: pointer;
-    width: 15px;
-    height: 15px;
+.profile>h1 input{
+    width: 210px;
+}
+
+section.contact input{
+    width: 144px;
+    padding: 2px 6px;
+}
+
+section.education>header .icon{
+    width: 1em; height: 1em;
     vertical-align: -0.15em;
     fill: currentColor;
     overflow: hidden;
 }
-section.education>ul>li>span{
-    display: inline-block;
+section.education>ul>li{
+    position: relative;
+ }
+section.education>ul>li>.remove{
+    position: absolute;
+    top: 2px;
+    right: -27px;
+}
+section.education>ul>li>.remove .icon{
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
 }
 
-section.education .year{width: 160px}
-section.education .school{width: 200px}
-section.education .major{width:250px;}
-section.education .education{  width: 80px;}
-
-/*编辑模式下的样式*/
-/*profile*/
-section input{
-    border: 1px solid rgb(169, 169, 169);
-    border-radius: 8px;
+section.education input{
     padding: 2px 6px;
-    outline: none;
-    margin-left: 3px;
 }
-section.profile input{
-    border-radius: 8px;
-    padding: 2px 6px;
-    outline: none;
 
+section.education .major input{
+    width: 100px;
 }
-section.profile .myname input{
-    margin-left: 64px;
+section.education .education input{
+    width: 50px;
 }
+
+section.education .year input{
+    width: 167px;
+    margin-bottom: 10px;
+}
+section.education .school input{
+    width: 167px;
+}
+
 
 /*skills*/
-section.skills input{
-    width:347px;
+section.skills>ul>li>.remove .icon,
+section.skills>header>.add .icon{
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
 }
-section.skills>ul>li>h3 .name{
-    display: flex;
-    align-items: center;
+section.skills>ul>li{
+    position: relative;
+}
+section.skills>ul>li>.remove{
+    position: absolute;
+    right: -20px;
+    top: 2px;
+}
+section.skills input{
+    padding: 2px 6px;
+}
+section.skills .name input{
+    width: 100px;
+}
+section.skills .percentage input{
+    width: 40px;
+    margin-right: 2px;
 }
 section.skills>ul>li>.description textarea{
     resize: none;
@@ -350,38 +410,54 @@ section.skills>ul>li>.description textarea{
     width: 100%;
     height: 100px;
 }
-/*项目经历*/
-section.projects input{
-    width: 300px;
-    margin: 3px 0;
-    border-radius: 8px;
-    padding: 2px 6px;
+/*自我介绍*/
+section.aboutme p{
+    width: 100%;
+}
+section.aboutme textarea{
+    resize: none;
     outline: none;
+    padding: 6px 6px;
+    width: 100%;
+    height: 200px;
+}
+
+/*项目经历*/
+section.projects>header>.addOrRemove{
+    display: inline-block;
+}
+section.projects>header>.add>.icon{
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+section.projects .remove .icon{
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+section.projects input{
+    padding: 2px 6px;
+    width: 260px;
+}
+section.projects .link{
+    width: 100%;
+}
+section.projects .linkWrapper input{
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 5px;
 }
 section.projects textarea{
     resize: none;
-    outline: none;
-    border-radius: 8px;
     padding: 6px 6px;
-    width: 96%;
-    height: 200px;
-    margin-top: 4px;
+    width: 100%;
+    height: 260px;
 }
 
 
 /*education*/
-section.education input{
-    margin: 2px 0;
-}
-section.education>ul>li>.year input{
-    width:150px;
-}
-section.education>ul>li>.school input{
-    width:190px;
-}
-section.education>ul>li>.major input{
-    width:240px;
-}
-section.education>ul>li>.education input{
-    width:80px;
-}

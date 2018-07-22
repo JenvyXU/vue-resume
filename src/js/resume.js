@@ -11,12 +11,14 @@ Vue.component('resume',{
         removeEducation (index) {
             this.resume.education.splice(index, 1)
         },
+
         addSkill () {
-            this.resume.skills.push({name: '请填写技能名称', description: '请填写技能描述'})
+            this.resume.skills.push({name:'New Skill',value:80},)
         },
         removeSkill (index) {
             this.resume.skills.splice(index, 1)
         },
+
         addProject () {
             this.resume.projects.push(
                 {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'},
@@ -42,171 +44,233 @@ Vue.component('resume',{
     },
     template:`
             <div class="resume">
-            <section class="profile">
-                <div class="about">
+            <div class="profile">
                     <h1>
                         <editable-span class="myname" :editing="editing"  :disabled="mode==='preview'" :value="displayResume.name" @edit="onEdit('name',$event)"></editable-span>
                     </h1>
                     <p>
-                       应聘职位: <editable-span :editing="editing"  :disabled="mode==='preview'" :value="displayResume.jobTitle" @edit="onEdit('jobTitle',$event)"></editable-span>
-                    </p>            
-                </div>
-                <div class="private">
-                 <div>
-                   <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-humanmalefemale"></use>
-                    </svg>
-                    <editable-span :editing="editing"  :disabled="mode==='preview'" :value="displayResume.gender" @edit="onEdit('gender',$event)"></editable-span>
-  
-                </div>
-                <div>
-                <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-1002rili"></use>
-                    </svg>
-                    <editable-span :editing="editing"  :disabled="mode==='preview'" :value="displayResume.birthday" @edit="onEdit('birthday',$event)"></editable-span>
-                </div>
-
-                 <div>
-
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-email"></use>
-                    </svg>
-                    <editable-span :editing="editing"  :disabled="mode==='preview'" :value="displayResume.email" @edit="onEdit('email',$event)"></editable-span>
-                 </div>                           
-                <div>
-                  <svg class="icon" aria-hidden="true">
-                      <use xlink:href="#icon-phone1"></use>
-                   </svg>
-                   <editable-span :editing="editing"  :disabled="mode==='preview'" :value="displayResume.phone" @edit="onEdit('phone',$event)"></editable-span>
-                </div>
-                </div>
-            </section>
-            <section class="skills">
-            <header>
-                   <h2>  
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-tools"></use>
-                        </svg>
-                        <span>技能</span>
-                    </h2>         
-                     <span v-if="mode==='edit'" class="add">
-                         <span @click="addSkill">
-                             <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-add"></use>
-                            </svg>
-                        </span>
-                    </span>              
-            </header>
-
-                <ul>
-                    <li v-for="skill,index in displayResume.skills">
-                    <h3>
-                    <div>
-                         <svg class="icon dot" aria-hidden="true">
-                            <use xlink:href="#icon-dot"></use>
-                        </svg>     
-                        <editable-span :editing="editing"  :disabled="mode==='preview'" class="name" :value="skill.name"
-                         @edit="onEdit('skills['+index+'].name',$event)"></editable-span>                
-                    </div>
-                     <span v-if="index>=4&&mode==='edit'" @click="removeSkill(index)" class="remove">
-                        <svg class="icon" aria-hidden="true">
-                          <use xlink:href="#icon-delete"></use>
-                        </svg>
-                      </span> 
-                     </h3>
-                    <div class="description">
-                         <editable-textarea :editing="editing"  :disabled="mode==='preview'" :value="skill.description" 
-                         @edit="onEdit('skills['+index+'].description',$event)">
-                         </editable-textarea>
-                    </div>
-                    </li>
-                </ul>
-            </section>
-            <section class="projects">
-            <header>
-                 <h2>
-                    <svg class="icon" aria-hidden="true">
-                      <use xlink:href="#icon-gongzuojingyan"></use>
-                    </svg>
-                <span>项目经历</span>               
-                 </h2>  
-                  <span v-show="mode==='edit'" class="add">
-                       <span @click="addProject">
-                        <svg class="icon" aria-hidden="true">
-                         <use xlink:href="#icon-add"></use>
-                         </svg>
-                     </span>  
-                     </span>    
-            </header>
-
-                <ol>
-                    <li v-for="project,index in displayResume.projects">
-                    <header>
-                        
-                        <h3 class="name">
-                         <div class="left"> 
-                          <svg class="icon dot" aria-hidden="true">
-                            <use xlink:href="#icon-dot"></use>
-                          </svg>                     
-                          <editable-span class="projectName" :editing="editing"  :disabled="mode==='preview'" :value="project.name" @edit="onEdit('projects['+index+'].name',$event)"></editable-span>
-                          <editable-span class="keywords" :editing="editing"  :disabled="mode==='preview'" :value="project.keywords" @edit="onEdit('projects['+index+'].keywords',$event)"></editable-span>              
-                          </div>
-                          <span v-if="index>=2&&mode==='edit'" @click="removeProject" class="remove">
+                       <editable-span :editing="editing"  :disabled="mode==='preview'" :value="displayResume.jobTitle" @edit="onEdit('jobTitle',$event)"></editable-span>
+                    </p> 
+                    <div class="private">
+                        <div>
+                           <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-gender"></use>
+                           </svg>
+                           <editable-span :editing="editing"  :disabled="mode==='preview'" :value="displayResume.gender" @edit="onEdit('gender',$event)"></editable-span>
+                         </div>
+                        <div>
                             <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-delete"></use>
+                               <use xlink:href="#icon-cc-calendar"></use>
                             </svg>
-                        </span>
-                        </h3>
-                              <div class="linkWrapper">                                  
-                             <editable-span class="link" :editing="editing"  :disabled="mode==='preview'" :value="project.link" @edit="onEdit('projects['+index+'].link',$event)"></editable-span>                          
-                             <a target="_blank" :href="project.link">
-                                <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-link1"></use>
+                            <editable-span :editing="editing"  :disabled="mode==='preview'" :value="displayResume.birthday" @edit="onEdit('birthday',$event)"></editable-span>
+                        </div>    
+                        <div>
+                            <svg class="icon" aria-hidden="true">
+                               <use xlink:href="#icon-location"></use>
+                            </svg>
+                            <editable-span :editing="editing"  :disabled="mode==='preview'" :value="displayResume.location" @edit="onEdit('location',$event)"></editable-span>
+                        </div>                    
+                    </div>                       
+            </div>
+            <div class="resumeDown">
+                <div class="resumeLeft">
+                    <section class="contact">
+                        <header>
+                        <h2>联系方式</h2>
+                        </header>                      
+                         <div class="father">       
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-wechat"></use>
+                            </svg>
+                            <div class="son">
+                                <editable-span :editing="editing"  :disabled="mode==='preview'" :value="displayResume.wechat" @edit="onEdit('wechat',$event)"></editable-span>
+                            </div>
+                         </div>
+                         
+                          <div class="father"> 
+                    
+                              <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-qq"></use>
                                 </svg>
-                              </a>                             
                             
+                            
+                            <div class="son">
+                                <editable-span :editing="editing"  :disabled="mode==='preview'" :value="displayResume.qq" @edit="onEdit('qq',$event)"></editable-span>                      
+                            </div>
+                             </div>
+                         <div class="father">       
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-email"></use>
+                            </svg>
+                            <div class="son">
+                                <editable-span :editing="editing"  :disabled="mode==='preview'" :value="displayResume.email" @edit="onEdit('email',$event)"></editable-span>                                                 
+                            </div>
+                               </div>                           
+                        <div class="father">
+                          <svg class="icon" aria-hidden="true">
+                              <use xlink:href="#icon-iphone"></use>
+                           </svg>
+                           <div class="son">
+                                <editable-span :editing="editing"  :disabled="mode==='preview'" :value="displayResume.phone" @edit="onEdit('phone',$event)"></editable-span>
+                       
                            </div>
-                    </header>
-                    <p>
-                        <editable-textarea :editing="editing"  :disabled="mode==='preview'" :value="project.description" @edit="onEdit('projects['+index+'].description',$event)"></editable-textarea>
-                    </p>
-
-                </li>
-
-                </ol>
-            </section>
-            <section class="education">       
+                           </div>
+                    </section>
+                    <section class="education">       
                 <header>
-                    <h2>
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-jiaoyujingli"></use>
-                        </svg>
-                        <span>教育经历</span>
-                    </h2>
-                     <span v-if="mode==='edit'" class="add">
-                        <span @click="addEducation">
+                    <h2>教育经历</h2>
+                        <span v-if="mode==='edit'&&editing===true" class="add" @click="addEducation">
                             <svg class="icon" aria-hidden="true">
                                 <use xlink:href="#icon-add"></use>
                             </svg>
-                        </span>
-                    </span>               
+                        </span>                                                     
+
                 </header>                        
                 <ul>
                     <li v-for="school,index in displayResume.education">
-                        <editable-span class="year" :editing="editing"  :disabled="mode==='preview'" :value="school.year" @edit="onEdit('education['+index+'].year',$event)"></editable-span>
-                        <editable-span class="school" :editing="editing"  :disabled="mode==='preview'" :value="school.school" @edit="onEdit('education['+index+'].school',$event)"></editable-span>
-                         <editable-span class="major" :editing="editing"  :disabled="mode==='preview'" :value="school.major" @edit="onEdit('education['+index+'].major',$event)"></editable-span>
-                         <editable-span class="education" :editing="editing"  :disabled="mode==='preview'" :value="school.education" @edit="onEdit('education['+index+'].education',$event)"></editable-span>
-                      
-                        <span v-if="index>=1&&mode==='edit'" @click="removeEducation(index)" class="remove">
+
+                        <h3>
+                          <editable-span class="major" :editing="editing"  :disabled="mode==='preview'" :value="school.major" @edit="onEdit('education['+index+'].major',$event)"></editable-span> 
+                          
+                          &nbsp/&nbsp
+                          
+                         <editable-span class="education" :editing="editing"  :disabled="mode==='preview'" :value="school.education" @edit="onEdit('education['+index+'].education',$event)"></editable-span> 
+                        </h3>
+                         <editable-span class="school" :editing="editing"  :disabled="mode==='preview'" :value="school.school" @edit="onEdit('education['+index+'].school',$event)"></editable-span>
+                         <editable-span class="year" :editing="editing"  :disabled="mode==='preview'" :value="school.year" @edit="onEdit('education['+index+'].year',$event)"></editable-span>
+                          <span v-if="mode==='edit'&&index>=1&&editing===true" @click="removeEducation(index)" class="remove">
                              <svg class="icon" aria-hidden="true">
                                 <use xlink:href="#icon-delete"></use>
                              </svg>
-                        </span>
+                          </span>  
                     </li>
-    
                 </ul>
             </section>
+                    <section class="skills"> 
+                        <header>
+                            <h2>
+                                <span>技能</span>
+                            </h2> 
+                                <span v-if="mode==='edit'&&editing===true" class="add" @click="addSkill">
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-add"></use>
+                                    </svg>
+                                </span>                                                                       
+                        </header>          
+                            <ul class="processBar">
+                                <li v-for="skill,index in displayResume.skills">
+                                    <span v-if="index>1&&editing===true" @click="removeSkill(index)" class="remove">
+                                        <svg class="icon" aria-hidden="true">
+                                           <use xlink:href="#icon-delete"></use>
+                                        </svg>
+                                    </span>    
+                                <h3>
+                                    <div> 
+                                        <svg class="icon" aria-hidden="true">
+                                          <use xlink:href="#icon-dot"></use>
+                                        </svg>
+                                    
+                                        <editable-span :editing="editing"  :disabled="mode==='preview'" class="name" :value="skill.name"
+                                         @edit="onEdit('skills['+index+'].name',$event)"></editable-span>                
+                                    </div>    
+                                    <div class="percentage"> 
+                                        <editable-span :editing="editing"  :disabled="mode==='preview'" class="processValue" :value="skill.value"
+                                         @edit="onEdit('skills['+index+'].value',$event)"></editable-span> %              
+                                    </div>   
+                                                    
+                                 </h3> 
+                                    <div id="process" v-bind:style="{ width: resume.skills[index].value+'%' }"></div> 
+                                 </li>
+                            </ul>
+                    </section>
+                </div>                            
+                <div class="resumeRight">
+<!--                 <section class="skills">
+               <header>
+                       <h2>  
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-tools"></use>
+                            </svg>
+                            <span>技能</span>
+                        </h2>         
+                         <span v-if="mode==='edit'&&editing===true" class="add">
+                             <span @click="addSkill">
+                                 <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-add"></use>
+                                </svg>
+                            </span>
+                        </span>              
+                </header>
+                    <ul>
+                        <li v-for="skill,index in displayResume.skills">
+                        <h3>
+                        <div>
+                             <svg class="icon dot" aria-hidden="true">
+                                <use xlink:href="#icon-dot"></use>
+                            </svg>     
+                            <editable-span :editing="editing"  :disabled="mode==='preview'" class="name" :value="skill.name"
+                             @edit="onEdit('skills['+index+'].name',$event)"></editable-span>                
+                        </div>
+                       
+                         <span v-if="index>=4&&mode==='edit'&&editing===true" @click="removeSkill(index)" class="remove">
+                            <svg class="icon" aria-hidden="true">
+                              <use xlink:href="#icon-delete"></use>
+                            </svg>
+                          </span> 
+                          
+                         </h3>
+                         
+                        <div class="description">
+                             <editable-textarea :editing="editing"  :disabled="mode==='preview'" :value="skill.description" 
+                             @edit="onEdit('skills['+index+'].description',$event)">
+                             </editable-textarea>
+                        </div>
+                        </li>
+                    </ul>
+                </section>-->
+                <section class="aboutme">
+                    <header>
+                       <h2>自我介绍</h2>
+                    </header>
+                    <p>
+                       <editable-textarea :editing="editing"  :disabled="mode==='preview'" :value="resume.aboutme" @edit="onEdit('aboutme',$event)"></editable-textarea>
+                    </p>
+                </section>
+                <section class="projects">
+                    <header>
+                             <h2>项目经历</h2>  
+                                 <span v-if="mode==='edit'&&editing===true" class="add" @click="addProject">
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-add"></use>
+                                    </svg>
+                                 </span>  
+                        </header>
+                    <ol>
+                                <li v-for="project,index in displayResume.projects">
+                                <header>
+                                    
+                                    <h3 class="name">          
+                                      <editable-span class="projectName" :editing="editing"  :disabled="mode==='preview'" :value="project.name" @edit="onEdit('projects['+index+'].name',$event)"></editable-span>
+                                      <editable-span class="keywords" :editing="editing"  :disabled="mode==='preview'" :value="project.keywords" @edit="onEdit('projects['+index+'].keywords',$event)"></editable-span>              
+                                     <span v-if="mode==='edit'&&index>=2&&editing===true" @click="removeProject(index)" class="remove">
+                                         <svg class="icon" aria-hidden="true">
+                                             <use xlink:href="#icon-delete"></use>
+                                         </svg>
+                                     </span>  
+                                    </h3>
+                                     <div class="linkWrapper">                                  
+                                         <editable-span class="link" :editing="editing"  :disabled="mode==='preview'" :value="project.link" @edit="onEdit('projects['+index+'].link',$event)"></editable-span>                                                   
+                                      </div>    
+                                </header>
+                                <p>
+                                    <editable-textarea :editing="editing"  :disabled="mode==='preview'" :value="project.description" @edit="onEdit('projects['+index+'].description',$event)"></editable-textarea>
+                                </p>
+            
+                            </li>           
+                            </ol>
+                </section>
+                </div>                                 
+            </div>   
         </div>
         `,
 

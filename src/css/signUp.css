@@ -1,4 +1,4 @@
-.signUp{
+.page>.signUp{
     position:absolute;
     left:50%;
     top:50%;
@@ -8,10 +8,9 @@
     background:#ffffff;
     text-align: center;
     border-radius: 40px;
-    box-shadow: 3px 3px 9px 2px #ddd;
 }
-.signUp>.topBar{
-    background: linear-gradient(to bottom right, #29AFC2, #0CE7A5);
+.signUp>.signupTopBar{
+    background: #24292E;
     color: #FFFFFF;
     font-weight: bold;
     font-size: 18px;

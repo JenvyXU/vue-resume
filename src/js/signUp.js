@@ -15,7 +15,9 @@ window.SignUp ={
             user.signUp().then((user) => {
                 alert('注册成功')
                 user = user.toJSON()
-                this.$emit('signUp')
+                this.$emit('signUp',user)
+                this.$router.push({path:'/'})
+                window.location.reload()
                 //this.currentUser.objectId = user.objectId
                 //this.currentUser.email = user.email
                 //this.signUpVisible = false
@@ -27,7 +29,7 @@ window.SignUp ={
     },
     template:`
         <div class="signUp" v-cloak>
-            <div class="topBar">
+            <div class="signupTopBar">
                 <h2>注册</h2>
             </div>
             <form @submit.prevent="onSignUp" class="form">
