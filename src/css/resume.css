@@ -12,6 +12,9 @@
     height: 50px;
     background: #EBEBEB;
 }
+.resume::after{
+    height: 30px;
+}
 
 /*profile*/
 
@@ -49,10 +52,10 @@
 .resume>.profile>.private>div{
     display: flex;
     align-items: center;
-    margin: 0 10px;
+    margin: 0 15px;
 }
 .resume>.profile .icon{
-    width: 1em; height: 1em;
+    width: 1.1em; height: 1.1em;
     vertical-align: -0.15em;
     fill: currentColor;
     overflow: hidden;
@@ -67,12 +70,15 @@
 .resume>.resumeDown{
     display: flex;
 }
+.resume>.resumeDown>.resumeLeft{
+    min-height: 832px;
+}
 .resume>.resumeDown>.resumeLeft>section{
     color: #575757;
     font-size: 16px;
     padding-left: 60px;
     padding-right: 25px;
-    margin-top: 50px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -104,7 +110,6 @@
     font-size: 16px;
     padding-left: 60px;
     padding-right: 25px;
-    margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -179,7 +184,7 @@
     font-size: 16px;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
 }
 
 
@@ -202,7 +207,7 @@
     font-size: 16px;
     padding-left: 25px;
     padding-right: 60px;
-    margin-top: 50px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -282,20 +287,20 @@ section.projects>ol>li>header>h3{
     font-size: 18px;
 }
 section.projects>ol>li>header>h3>.remove{
-    margin-right: 10px;
+
 }
 section.projects>ol>li>header>h3>.left{
 
 }
-section.projects>ol>li>header>h3>.left>.editableSpan.keywords{
-    position: absolute;
-    right: 50px;
-    top:0px;
+section.projects>ol>li>header>h3>.editableSpan.keywords{
+    display: flex;
+    align-items: center;
+
 }
 
 section.projects .link>span{
     display: inline-block;
-    max-width: 200px;
+    width: 100%;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
@@ -324,10 +329,10 @@ section.projects>ol>li>p .description{
 
 .profile>p input{
     margin-bottom: 10px;
-    width: 210px;
+    width: 213px;
 }
 .profile>h1 input{
-    width: 210px;
+    width: 213px;
 }
 
 section.contact input{
@@ -442,7 +447,7 @@ section.projects .remove .icon{
 
 section.projects input{
     padding: 2px 6px;
-    width: 260px;
+    width: 275px;
 }
 section.projects .link{
     width: 100%;

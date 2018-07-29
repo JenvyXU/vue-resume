@@ -10,32 +10,24 @@ var app = new Vue({
     router,
     data:{
             shareVisible: false,
-            skinPickerVisible:false,
             loginVisible: false,
             logoutVisible: false,
             mode: 'edit',
             shareLink:'',
-
             resume: {
                 name: '姓名',
                 gender: '男',
-                birthday: '1990年1月',
-                location:'广州',
+                birthday: '1992年1月1日',
+                location:'City,China',
                 jobTitle: '前端工程师',
                 phone: '13800000000',
                 email: 'example@example.com',
-                wechat:'xuzhenwei111',
-                qq:'1272117264',
-                aboutme:`新京报快讯 21日，一网友爆料称，国航由北京飞往哈尔滨的CA1639航班起飞后，
-                机舱内冒烟，随后返航。国航客服回复称，该航班于20时30分起飞后，发现客舱空调有异味，
-                机组为确保安全，决定返回北京，随后国航已安排另一架飞机将旅客送往目的地。
-                一位乘客家属提供的聊天记录显示，乘客称“当时机舱全是烟，有味道”，待飞机返航落地后，
-                机组让乘客快速下机，“行李都不要拿”。国航客服一名工作人员称，经查询，
-                显示7月21日CA1639航班于20时30分起飞后，发现客舱空调有异味，机组为确保安全，
-                决定返回北京，21时已安全落地，随后国航已安排另一架飞机将旅客送往目的地。`,
+                wechat:'xuzhenwei',
+                qq:'1234567890',
+                aboutme:`Hello! 我是一名前端开发工程师，熟练使用Html、CSS和JavaScript开发前端网页；熟悉常见的算法；熟练使用各种前端工具，比如vscode、webstrom、webpack等；熟悉MVC设计模式，可以快速的对项目代码进行模块化；熟悉Vue框架，如何你觉得我符合贵司的要求，请联系我。`,
                 education:[
-                    {year:'2011.9-2015.7',school:'大连海事大学',education:'本科',major:'通信工程'},
-                    {year:'2011.9-2015.7',school:'大连海事大学',education:'本科',major:'通信工程'},
+                    {year:'2011.9 - 2015.7',school:'输入你的大学',education:'本科',major:'软件工程'},
+                    {year:'2015.9 - 2018.7',school:'输入你的大学',education:'硕士',major:'软件工程'},
                 ],
                 skills:[
                     {name:'Javascript',value:80},
@@ -43,11 +35,39 @@ var app = new Vue({
                     {name:'HTML',value:70},
                 ],
                 projects: [
-                    {name: '项目名称', link: 'http://www.baidu.com', keywords: 'CSS /JS /VUE',
-                        description: `  新京报快讯 21日，一网友爆料称，国航由北京飞往哈尔滨的CA1639航班起飞后，机舱内冒烟，随后返航。国航客服回复称，该航班于20时30分起飞后，发现客舱空调有异味， 机组为确保安全，决定返回北京，随后国航已安排另一架飞机将旅客送往目的地。 一位乘客家属提供的聊天记录显示，乘客称“当时机舱全是烟，有味道”，待飞机返航落地后，机组让乘客快速下机，“行李都不要拿”。国航客服一名工作人员称，经查询，显示7月21日CA1639航班于20时30分起飞后，发现客舱空调有异味，机组为确保安全， 决定返回北京，21时已安全落地，随后国航已安排另一架飞机将旅客送往目的地。`},
-                    {name: '项目名称', link: 'http://www.qq.com', keywords: '关键词', description: '项目描述'},
-                    {name: '项目名称', link: 'http://www.baidu.com', keywords: '关键词',
-                        description: `  新京报快讯 21日，一网友爆料称，国航由北京飞往哈尔滨的CA1639航班起飞后，机舱内冒烟，随后返航。国航客服回复称，该航班于20时30分起飞后，发现客舱空调有异味， 机组为确保安全，决定返回北京，随后国航已安排另一架飞机将旅客送往目的地。 一位乘客家属提供的聊天记录显示，乘客称“当时机舱全是烟，有味道”，待飞机返航落地后，机组让乘客快速下机，“行李都不要拿”。国航客服一名工作人员称，经查询，显示7月21日CA1639航班于20时30分起飞后，发现客舱空调有异味，机组为确保安全， 决定返回北京，21时已安全落地，随后国航已安排另一架飞机将旅客送往目的地。`},
+                    {
+                        name: '第一个项目',
+                        link: 'http://www.example1.com',
+                        keywords: 'keyword1/keyword2/keyword3',
+                        description: `项目界面...，有...功能，可以...,
+特点是：
+1. 使用Vue框架；
+2. 使用了jQuery库
+3. ...
+`
+                    },
+                    {
+                        name: '第二个项目',
+                        link: 'http://www.example1.com',
+                        keywords: 'keyword1/keyword2/keyword3',
+                        description: `项目界面...，有...功能，可以...,
+特点是：
+1. 使用Vue框架；
+2. 使用了jQuery库
+3. ...
+`
+                    },
+                    {
+                        name: '第三个项目',
+                        link: 'http://www.example1.com',
+                        keywords: 'keyword1/keyword2/keyword3',
+                        description: `项目界面...，有...功能，可以...,
+特点是：
+1. 使用Vue框架；
+2. 使用了jQuery库
+3. ...
+`
+                    },
 
                 ]
             },
@@ -140,15 +160,3 @@ if (matches) {
         app.previewResume = resume
     })
 }
-
-/*for(let i=0;i<$('.processBar>li').length;i++){
- let processValue=$('.processBar>li').eq(i).find('.processValue>span')[0].innerText
-    console.log(processValue)
-    console.log($('.processBar>li').eq(i).find('#process'))
-    $('.processBar>li').eq(i).find('#process').css('width',processValue+'%')
-}*/
-/*for(let i=0;i<app.resume.skills.length;i++){
-    let processValue=String(app.resume.skills[i].value)
-    console.log(processValue)
-    $('.processBar>li').eq(i).find('#process').css('width',processValue+'%')
-}*/

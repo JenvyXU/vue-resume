@@ -42,7 +42,7 @@
     position: absolute;
     top:0;
     right:0;
-    transform: translate(40%,-30%);
+    transform: translate(-20%,20%);
 }
 .share >.closeShare .icon{
     width: 1.6em; height: 1.6em;

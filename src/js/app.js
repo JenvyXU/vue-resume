@@ -10,7 +10,7 @@ window.App={
         </main>   
         <share :share-link="url"  v-show="shareVisible" @close="shareVisible=false"></share>
         <button v-cloak v-if="mode==='preview'" @click="$emit('exit-preview')" class="exitPreview">退出预览</button>
-    </div>
+        </div>
     `,
     data(){
         return {
@@ -34,8 +34,6 @@ window.App={
             }
         },
         hasLogin () {
-            console.log('userId')
-            console.log(this.currentUser.objectId)
             return !!this.currentUser.objectId
         },
         onLogin(user){
