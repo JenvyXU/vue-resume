@@ -1,4 +1,5 @@
-Vue.component('share',{
+require('css/share.css')
+let Share=Vue.component('share',{
     props:['share-link'],
     template:`
     <div class="share" v-cloak>
@@ -16,3 +17,4 @@ Vue.component('share',{
     </div>
     `,
 })
+module.exports=Share

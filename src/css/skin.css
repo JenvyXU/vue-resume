@@ -41,10 +41,11 @@
 }
 @keyframes skinPicker {
     from{
-    translate(100%,-50%);
+        
+        translate:transform(100%,-50%);
     }
     to{
-    translate(0,-50%);
+        translate:transform(0,-50%);
     }
 }
 .skinPiker>button:hover{

@@ -1,4 +1,4 @@
-Vue.component('editable-textarea', {
+let TextArea=Vue.component('editable-textarea', {
     props: ['value', 'editing'],
     template: `
       <span class="editableSpan">
@@ -17,3 +17,4 @@ Vue.component('editable-textarea', {
         }
     }
 })
+module.exports=TextArea

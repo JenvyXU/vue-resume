@@ -1,36 +1,40 @@
-.page>div>.topBar,
-.page>div>.share{
-    display: none;
+
+@media print{
+    .page>div>.topBar,
+    .page>div>.share{
+        display: none;
+    }
+    .page>div>main .add, .remove{
+        display: none;
+    }
+    .page{
+        margin: 0;
+    }
+    .resume {
+        margin: 0;
+        width: 100%;
+        box-shadow: none;
+        background: #FFFFFF;
+    }
+    .resume>.resumeDown>.resumeLeft>section.contact>.father>.son>.editableSpan{
+        width: 106px;
+        display: inline-block;
+        word-break: break-all;
+    }
+    section.projects>ol>li>header>.linkWrapper{
+        display: none;
+    }
+    .resume>section.skills::after,
+    .resume>section.projects::after,
+    .resume>section.education::after{
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: 0;
+        display: block;
+        width: 8%;
+        height: 5px;
+        background: #2E2C2D;
+    }
 }
-.page>div>main .add, .remove{
-    display: none;
-}
-.page{
-    margin: 0;
-}
-.resume {
-    margin: 0;
-    width: 100%;
-    box-shadow: none;
-    background: #FFFFFF;
-}
-.resume>.resumeDown>.resumeLeft>section.contact>.father>.son>.editableSpan{
-    width: 106px;
-    display: inline-block;
-    word-break: break-all;
-}
-section.projects>ol>li>header>.linkWrapper{
-    display: none;
-}
-.resume>section.skills::after,
-.resume>section.projects::after,
-.resume>section.education::after{
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: 0;
-    display: block;
-    width: 8%;
-    height: 5px;
-    background: #2E2C2D;
-}
+

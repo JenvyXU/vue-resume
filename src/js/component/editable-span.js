@@ -1,4 +1,5 @@
-Vue.component('editable-span', {
+require('css/editable-span.css')
+let EditableSpan=Vue.component('editable-span', {
     props: ['value', 'editing'],
     template: `
       <span class="editableSpan">
@@ -17,3 +18,4 @@ Vue.component('editable-span', {
         }
     }
 })
+module.exports=EditableSpan

@@ -1,4 +1,7 @@
-Vue.component('resume',{
+require('css/resume.css')
+require('css/themes/colors.css')
+require('css/print.css')
+let Resume=Vue.component('resume',{
     props:['mode','display-resume','resume','editing'],
     data(){
         return {
@@ -231,3 +234,4 @@ Vue.component('resume',{
         `,
 
 })
+module.exports=Resume

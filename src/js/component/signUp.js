@@ -1,4 +1,5 @@
-window.SignUp ={
+require('css/signUp.css')
+let SignUp=Vue.component('signUp',{
     data(){
         return {
             signUp: {
@@ -48,5 +49,5 @@ window.SignUp ={
             </form>
         </div>
     `,
-}
-Vue.component('signUp',SignUp)
+})
+module.exports.SignUp=SignUp

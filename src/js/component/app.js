@@ -1,11 +1,18 @@
-window.App={
+require('./top-bar.js')
+require('./resume.js')
+require('./editable-span.js')
+require('./editable-textarea.js')
+require('./share.js')
+require('css/index.css')
+require('css/skin.css')
+let App=Vue.component('app',{
     props:['resume','logout-visible','current-user','url','display-resume','email','mode'],
     template:`
     <div>        
          <top-bar v-show="mode==='edit'" @save="onClickSave" @share="onShare" :logout-visible="logoutVisible"
          @print="printResume" @changeTheme="skinPickerVisible=true" @logout="onLogout" @edit="editing=!editing" :username="email"
          :mode="mode"></top-bar>
-         <main>
+        <main>
             <resume :editing="editing" :mode="mode" :display-resume="displayResume" :resume="resume"></resume>
         </main>   
         <share :share-link="url"  v-show="shareVisible" @close="shareVisible=false"></share>
@@ -25,7 +32,6 @@ window.App={
         }
     },
     methods: {
-
         onShare(){
             if(this.hasLogin()){
                 this.shareVisible=true
@@ -77,8 +83,8 @@ window.App={
         printResume(){
             window.print()
         }
-
     },
-}
-Vue.component('app',App)
+})
+
+module.exports.App=App
 

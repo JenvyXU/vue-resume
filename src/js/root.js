@@ -1,11 +1,21 @@
+let App=require('./component/app.js').App
+let Login=require('./component/login.js').Login
+let SignUp=require('./component/signUp.js').SignUp
+let initAV=require('./av.js').initAV
+console.log(initAV)
+Vue.use(VueRouter) 
+
+
 const routes = [
-    { path: '/', component: window.App},
-    { path: '/login', component: window.Login },
-    { path: '/signUp', component: window.SignUp },
+    { path: '/', component: App},
+    { path: '/login', component: Login },
+    { path: '/signUp', component: SignUp },
 ]
 const router = new VueRouter({
     routes,
 })
+
+
 var app = new Vue({
     router,
     data:{
@@ -82,8 +92,6 @@ var app = new Vue({
             return this.mode === 'preview' ? this.previewResume : this.resume
         }
     },
-
-
     watch: {
         'currentUser.objectId': function (newValue, oldValue) {
             if (newValue) {
@@ -104,8 +112,6 @@ var app = new Vue({
             }
         }
     },
-
-
     methods:{
         getResume(user){
             let query = new AV.Query('User');
@@ -130,6 +136,8 @@ var app = new Vue({
     },
 }).$mount('#root')
 
+
+initAV()
 let currentUser = AV.User.current()
 if(currentUser){
     app.logoutVisible=true
@@ -145,13 +153,11 @@ if(currentUser){
         }
     })
 }
-console.log(app.resume)
 // 获取预览用户的 id
 let search = location.search
 let regex = /user_id=([^&]+)/
 let matches = search.match(regex)
 let userId
-
 if (matches) {
     userId = matches[1]
     app.mode = 'preview'

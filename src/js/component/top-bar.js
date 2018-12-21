@@ -1,4 +1,5 @@
-Vue.component('top-bar',{
+require('css/top-bar.css')
+let TopBar=Vue.component('top-bar',{
     props:['logout-visible','username','mode'],
     data(){
         return {
@@ -25,3 +26,4 @@ Vue.component('top-bar',{
         </div>
     `,
 })
+module.exports=TopBar
