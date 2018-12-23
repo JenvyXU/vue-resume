@@ -1,0 +1,389 @@
+.resume{
+    box-shadow: 3px 3px 10px 5px rgba(16, 15, 15, 0.3);
+    width: 930px;
+    margin: 50px auto 100px auto;
+    background: #FEFEFE;
+    color: #535353;
+    &:before, &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 50px;
+        background: #EBEBEB;
+    }
+    .profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+        &:after{
+            content: '';
+            display: block;
+            width: 88%;
+            height: 15px;
+            background: #F6F6F6;
+            margin-top: 30px;           
+        }
+
+        input{
+            width: 200px; 
+            font-size: 14px;
+        }  
+        >h1{
+            font-size: 50px;   
+            letter-spacing: 10px;
+
+            input{
+                width: 200px;
+                margin-left: 26px;
+                margin-bottom:10px;
+            }  
+        }       
+        >p{ 
+            margin: 10px 0;
+            letter-spacing: 2px;
+            font-size: 16px;    
+            input{
+                margin-right: 58px;
+                margin-bottom: 10px;
+                width: 200px;
+            } 
+        }
+        .private{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            >div{
+                display: flex;
+                align-items: center;
+                margin: 0 15px;
+            }
+            .icon{
+                width: 20px;
+                height: 20px;
+                margin-right: 6px;
+            }
+        }
+
+    }
+    .resumeDown{
+        display: flex;
+        .resumeLeft{
+            border-right: 1px solid #BFBFBF;
+            width: 28%;
+            input{
+                width: 144px;
+            }
+            section{
+                margin-top: 30px;
+                padding-left: 60px;
+                padding-right: 25px;
+                >header{
+                    width: 100%;
+                    margin-bottom: 25px;
+                    padding-bottom: 6px;
+                    font-size: 16px;
+                    border-bottom: 1px solid #B6B6B6;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    >h2{
+                        font-size: 20px;
+                    }
+                    .icon{
+                        width: 16px;
+                        height: 16px;
+                    }
+                }
+            }
+            .contact{      
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+  
+                .father{
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 10px;
+                    .icon{
+                        width: 20px;
+                        height:20px;
+                        margin-right: 10px;
+                    }
+                    .son{
+                        font-size: 14px;
+                        position: relative;
+                        width: 144px;
+                        word-break: break-all;
+                    }
+                }
+            }
+            .education{
+                header{
+                    position: relative;
+                    .add{
+                        display: flex;
+                        position: absolute;
+                        top: 6px;
+                        left: -25px;
+                    }
+                }
+                ul{
+                    li{
+                        position: relative;
+                        h3{
+                            font-size: 16px;
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 10px;
+                            .major{
+                                input{
+                                    width: 120px;
+                                    margin-right: 4px;
+                                    
+                                }
+                            }
+                            .education{
+                                input{
+                                    width: 50px;
+                                    text-align: center;
+                                }
+                            }
+   
+
+                        }
+                        .school{
+                            font-size: 14px;
+                            display: block;
+                            margin-bottom: 6px;
+                            input{
+                                width: 174px;
+                            }
+                        }
+                        .year{
+                            font-size: 14px;
+                            display: block;
+                            margin-bottom: 12px;
+                            input{
+                                width: 174px;
+                            }
+                        }
+                        .remove{
+                            position: absolute;
+                            top: 8px;
+                            left: -25px;
+                            display: flex;
+                        }
+                        .icon{
+                            width: 16px;
+                            height: 16px;
+                        }
+                    }
+                }
+            }
+            .skills{
+                header{
+                    position: relative;
+                    .add{
+                        display: flex;
+                        position: absolute;
+                        top:6px;
+                        left: -25px;
+                    }
+                }
+                .processBar{
+                    li{
+                        margin-bottom: 25px;
+                        position: relative;
+                        .icon{
+                            width: 16px;
+                            height: 16px;
+                        }
+                        .remove{
+                            position: absolute;
+                            top: 8px;
+                            left: -25px;
+                            display: flex;
+                        }
+                        h3{
+                            width: 100%;
+                            font-size: 16px;
+                            display: flex;
+                            justify-content: space-between;
+                            margin-bottom: 4px;
+                            
+                            >div{
+                                display: flex;
+                                align-items: center;
+                                .icon{
+                                    width:10px;
+                                    height: 10px;
+                                }
+                                .name{
+                                    input{
+                                        width: 120px;
+                                    }
+                                }
+                            }
+                            .percentage{
+                                font-weight: lighter;
+                                font-size: 15px;
+                                input{
+                                    text-align: center;
+                                    width: 50px;
+                                }
+                            }
+
+                        }
+                        #process{
+                            background: #BFBFBF;
+                            height: 4px;
+                            border-radius: 2px;
+                        }
+
+                    }
+                }
+            }
+        }
+        .resumeRight{
+            width: 72%;
+            section{
+                color: #575757;
+                font-size: 16px;
+                padding-left: 25px;
+                padding-right: 60px;
+                margin-top: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                >header{
+                    width: 100%;
+                    margin-bottom: 25px;
+                    border-bottom: 1px solid #B7B7B7;
+                    padding-bottom: 6px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                }
+            }
+            .aboutme{
+                textarea{
+                    font-size: 14px;
+                    width: 100%;
+                    height: 200px;
+                    resize: none;
+                    outline: none;
+                }               
+                header{
+                    h2{
+                        font-size: 20px;
+                    }
+                }
+                p{
+                    font-size: 14px;
+                    width: 100%;
+                    .editableSpan{
+                        .description{
+                            
+                        }
+
+                    }
+
+                }
+
+            }
+            .projects{        
+                header{
+                    position: relative;
+                    h2{
+                        font-size: 20px;
+                    }
+                    .add{
+                        position: absolute;
+                        top: 5px;
+                        left: -22px;
+                        display: flex;
+                    }
+                    .icon{
+                        width: 16px;
+                        height: 16px;
+                    }
+                }
+        
+                ol{
+                    width: 100%;
+                    li{
+                        margin-bottom: 40px;
+                        header{
+                            .name{
+                                width: 100%;
+                                font-size: 16px;
+                                position: relative;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                .remove{
+                                    position: absolute;
+                                    left: -22px;
+                                    top: 10px;
+                                    display: flex;
+                                }
+                               .projectName{
+                                   input{
+                                        width: 285px;
+                                   }
+                               }
+                               
+                                .keywords{
+                                    display: flex;
+                                    align-items: center;
+                                    input{
+                                        width: 285px;
+                                    }
+                                }
+                            }
+                            .linkWrapper{
+                                display: flex;
+                                align-items: center;
+                                font-size: 16px;
+                                margin-bottom: 5px;
+                                input{
+                                    width: 100%;
+                                    margin-top: 8px;
+                                    margin-bottom: 5px;  
+                                }
+                                .link{
+                                    width: 100%;
+                                    >span{
+                                        display: inline-block;
+                                        width: 100%;
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                    }
+                                }
+                            }
+                        }
+                        p{
+                            font-size: 14px;
+                            line-height: 1.5;
+                            textarea{
+                                width: 100%;
+                                height: 260px;
+                            }
+                            .editableSpan{
+                                .description{
+                                    word-break: normal;
+                                    white-space: pre-wrap;
+                                    word-wrap: break-word;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

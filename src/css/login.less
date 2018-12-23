@@ -1,5 +1,5 @@
 *{box-sizing: border-box}
-.page>.login{
+.login{
     display: flex;
     flex-direction: column;
     position:absolute;
@@ -11,25 +11,26 @@
     background:#FFFFFF;
     text-align: center;
     border-radius: 40px;
-}
-.login>.loginTopBar{
-    background: #24292E;
-    color: #FFFFFF;
-    font-weight: bold;
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 18px 0;
-    margin-bottom: 50px;
-    border-top-left-radius:40px ;
-    border-top-right-radius:40px ;
+    .loginTopBar{
+        background: #24292E;
+        color: #FFFFFF;
+        font-weight: bold;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 18px 0;
+        margin-bottom: 50px;
+        border-top-left-radius:40px ;
+        border-top-right-radius:40px ;
+        .right>a{
+            display: inline;
+        }
+    }
+
 }
 
-.login>.loginTopBar>.right>a{
-display: inline;
 
-}
 .login>.form>.row>input{
     width: 250px;
     color: #727272;

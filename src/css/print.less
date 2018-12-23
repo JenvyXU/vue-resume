@@ -1,17 +1,19 @@
-
 @media print{
-    .page>div>.topBar,
-    .page>div>.share{
+    #root{
+        margin: 0;
+    }
+    #root>div>.topBar,
+    #root>div>.share{
         display: none;
     }
-    .page>div>main .add, .remove{
+    #root>div>main .add, .remove{
         display: none;
     }
-    .page{
+    #root{
         margin: 0;
     }
     .resume {
-        margin: 0;
+        margin: -100px 0 0 0;
         width: 100%;
         box-shadow: none;
         background: #FFFFFF;
