@@ -16,19 +16,31 @@ module.exports = {
         {
             test: /\.css$/,
             use: ['style-loader','css-loader']
+        },
+        {
+            test: /\.less$/,
+            use: [{
+                loader: "style-loader" // creates style nodes from JS strings
+            }, {
+                loader: "css-loader" // translates CSS into CommonJS
+            }, {
+                loader: "less-loader" // compiles Less to CSS
+            }]
         }
         ]
     },
     devtool: 'inline-source-map',
     devServer: {
-            contentBase: './dist'
+            contentBase: './dist',
+            port: 9000
         },
 
     resolve:{
 
         alias:{
             'vue$': 'vue/dist/vue.esm.js', 
-            css: path.join(__dirname,"src/css")
+            css: path.join(__dirname,"src/css"),
+            vendors: path.join(__dirname,"vendors"),
         }
     },
   
@@ -42,10 +54,9 @@ module.exports = {
         new webpack.ProvidePlugin({
             VueRouter: ['vue-router', 'default']
         }),
-       // new webpack.ProvidePlugin({
-           // VueRouter: 'vue-router'
-       // })
-        
+        new webpack.ProvidePlugin({
+            AV: 'leancloud-storage/dist/av.js'
+        }),
         ]
 
 }

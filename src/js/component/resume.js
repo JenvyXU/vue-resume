@@ -1,6 +1,5 @@
-require('css/resume.css')
-require('css/themes/colors.css')
-require('css/print.css')
+require('css/resume.less')
+require('css/print.less')
 let Resume=Vue.component('resume',{
     props:['mode','display-resume','resume','editing'],
     data(){
@@ -52,7 +51,7 @@ let Resume=Vue.component('resume',{
                         <editable-span class="myname" :editing="editing"  :disabled="mode==='preview'" :value="displayResume.name" @edit="onEdit('name',$event)"></editable-span>
                     </h1>
                     <p>
-                       <editable-span :editing="editing"  :disabled="mode==='preview'" :value="displayResume.jobTitle" @edit="onEdit('jobTitle',$event)"></editable-span>
+                       <span>应聘职位: </span><editable-span :editing="editing"  :disabled="mode==='preview'" :value="displayResume.jobTitle" @edit="onEdit('jobTitle',$event)"></editable-span>
                     </p> 
                     <div class="private">
                     
@@ -132,11 +131,9 @@ let Resume=Vue.component('resume',{
                     <li v-for="school,index in displayResume.education">
 
                         <h3>
-                          <editable-span class="major" :editing="editing"  :disabled="mode==='preview'" :value="school.major" @edit="onEdit('education['+index+'].major',$event)"></editable-span> 
-                          
-                          &nbsp/&nbsp
-                          
-                         <editable-span class="education" :editing="editing"  :disabled="mode==='preview'" :value="school.education" @edit="onEdit('education['+index+'].education',$event)"></editable-span> 
+                          <editable-span class="major" :editing="editing"  :disabled="mode==='preview'" :value="school.major" @edit="onEdit('education['+index+'].major',$event)"></editable-span>                           
+                          <span v-show=!editing>&nbsp/&nbsp</span>                         
+                          <editable-span class="education" :editing="editing"  :disabled="mode==='preview'" :value="school.education" @edit="onEdit('education['+index+'].education',$event)"></editable-span> 
                         </h3>
                          <editable-span class="school" :editing="editing"  :disabled="mode==='preview'" :value="school.school" @edit="onEdit('education['+index+'].school',$event)"></editable-span>
                          <editable-span class="year" :editing="editing"  :disabled="mode==='preview'" :value="school.year" @edit="onEdit('education['+index+'].year',$event)"></editable-span>
@@ -168,7 +165,7 @@ let Resume=Vue.component('resume',{
                                     </span>    
                                 <h3>
                                     <div> 
-                                        <svg class="icon" aria-hidden="true">
+                                        <svg class="icon" aria-hidden="true" v-show=!editing>
                                           <use xlink:href="#icon-dot"></use>
                                         </svg>
                                     
@@ -177,7 +174,7 @@ let Resume=Vue.component('resume',{
                                     </div>    
                                     <div class="percentage"> 
                                         <editable-span :editing="editing"  :disabled="mode==='preview'" class="processValue" :value="skill.value"
-                                         @edit="onEdit('skills['+index+'].value',$event)"></editable-span> %              
+                                         @edit="onEdit('skills['+index+'].value',$event)"></editable-span> <span v-show=!editing>%</span>              
                                     </div>   
                                                     
                                  </h3> 

@@ -1,4 +1,4 @@
-require('css/share.css')
+require('css/share.less')
 let Share=Vue.component('share',{
     props:['share-link'],
     template:`

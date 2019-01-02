@@ -1,4 +1,4 @@
-require('css/login.css')
+require('css/login.less')
 let Login=Vue.component('login',{
     template:`
     <div class="login" v-cloak>
@@ -31,13 +31,8 @@ let Login=Vue.component('login',{
         onLogin(e){
             AV.User.logIn(this.login.email, this.login.password).then((user) => {
                 user = user.toJSON()
-                //this.$emit('login',user)
                 this.$emit('login',user)
                 this.$router.push({path:'/'})
-
-                //this.currentUser.objectId = user.objectId
-                //this.currentUser.email = user.email
-                //this.loginVisible = false
             }, (error) => {
                 if (error.code === 211) {
                     alert('邮箱不存在')

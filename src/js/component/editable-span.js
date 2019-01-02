@@ -1,4 +1,4 @@
-require('css/editable-span.css')
+require('css/editable-span.less')
 let EditableSpan=Vue.component('editable-span', {
     props: ['value', 'editing'],
     template: `

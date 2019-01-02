@@ -2,10 +2,7 @@ let App=require('./component/app.js').App
 let Login=require('./component/login.js').Login
 let SignUp=require('./component/signUp.js').SignUp
 let initAV=require('./av.js').initAV
-console.log(initAV)
 Vue.use(VueRouter) 
-
-
 const routes = [
     { path: '/', component: App},
     { path: '/login', component: Login },
@@ -104,10 +101,8 @@ var app = new Vue({
             }
         },
         'resume.skills':function(newValue,oldValue){
-            console.log(1)
             for(let i=0;i<app.resume.skills.length;i++){
                 let processValue=String(app.resume.skills[i].value)
-                console.log(processValue)
                 $('.processBar>li').eq(i).find('#process').css('width',processValue+'%')
             }
         }
@@ -146,8 +141,6 @@ if(currentUser){
     app.shareLink = location.origin + location.pathname + '?user_id=' + app.currentUser.objectId
 
     app.getResume(app.currentUser).then(resume=>{
-        console.log('resume')
-        console.log(resume)
         if(resume){
             app.resume = resume
         }

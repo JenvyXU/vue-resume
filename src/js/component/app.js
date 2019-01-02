@@ -3,15 +3,14 @@ require('./resume.js')
 require('./editable-span.js')
 require('./editable-textarea.js')
 require('./share.js')
-require('css/index.css')
-require('css/skin.css')
+require('css/index.less')
+require('css/skin.less')
 let App=Vue.component('app',{
     props:['resume','logout-visible','current-user','url','display-resume','email','mode'],
     template:`
     <div>        
-         <top-bar v-show="mode==='edit'" @save="onClickSave" @share="onShare" :logout-visible="logoutVisible"
-         @print="printResume" @changeTheme="skinPickerVisible=true" @logout="onLogout" @edit="editing=!editing" :username="email"
-         :mode="mode"></top-bar>
+         <top-bar v-show="mode==='edit'" @save="onClickSave" @share="onShare" :logout-visible="logoutVisible" 
+         @print="printResume" @logout="onLogout" @edit="editing=!editing" :username="email" :mode="mode" :editing="editing"></top-bar>
         <main>
             <resume :editing="editing" :mode="mode" :display-resume="displayResume" :resume="resume"></resume>
         </main>   

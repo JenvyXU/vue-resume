@@ -1,10 +1,11 @@
-require('css/signUp.css')
+require('css/signUp.less')
 let SignUp=Vue.component('signUp',{
     data(){
         return {
             signUp: {
                 email: '',
-                password: ''}
+                password: ''
+            }
         }
     },
     methods:{
